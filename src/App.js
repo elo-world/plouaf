@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext } from "react";
+import Header from "./components/Header";
+import Actions from "./components/Actions";
+import { LanguageContext } from "./context/LanguageContext";
+import translations from "./Translations";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const { lang } = useContext(LanguageContext);
+
+    return (
+        <div className="app">
+            <Header />
+            <p>{translations[lang].hello}</p>
+            <Actions />
+        </div>
+    );
 }
 
 export default App;
