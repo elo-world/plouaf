@@ -1,19 +1,15 @@
-import { useContext } from "react";
+import { Outlet } from "react-router-dom";
+
+// Components
 import Header from "./components/Header";
-import Actions from "./components/Actions";
-import { LanguageContext } from "./context/LanguageContext";
-import translations from "./Translations";
 
-function App() {
-    const { lang } = useContext(LanguageContext);
-
+const App = () => {
     return (
         <div className="app">
             <Header />
-            <p>{translations[lang].hello}</p>
-            <Actions />
+            <Outlet /> {/* Content of the page. */}
         </div>
     );
-}
+};
 
 export default App;
