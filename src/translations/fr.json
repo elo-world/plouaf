@@ -1,3 +1,12 @@
 {
-    "language": "Français"
+    "language": "Français",
+    "pages": {
+        "RandomDraw": {
+            "title": "Tirage au sort"
+        },
+        "HeadsOrTails": {
+            "title": "Heads or Tails",
+            "flip": "Flip the coin"
+        }
+    }
 }

@@ -3,18 +3,23 @@ import { useContext } from "react";
 import { LanguageContext } from "../context/LanguageContext";
 import translations from "../components/Translations";
 
-function Header() {
+function Header({ show, status, toggleMenu }) {
     const { lang, setLang } = useContext(LanguageContext);
 
     return (
         <header>
-            <img fetchPriority={"high"} src="./images/logo/typo.svg" alt="Logo typographique" />
+            <img
+                className="logo"
+                fetchPriority={"high"}
+                src="./images/logo/typo.svg"
+                alt="Logo typographique"
+            />
             <div className="languages">
-                <button>
+                <button className="secondary" onClick={toggleMenu}>
                     <img src="./images/icons/world.svg" alt="Language icon" />
                     {translations[lang].language}
                 </button>
-                <ul>
+                <ul className={`languages-menu ${show ? "show" : status}`}>
                     {translations["languages"]
                         .filter((language) => language !== lang)
                         .map((language) => (

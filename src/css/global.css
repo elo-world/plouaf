@@ -6,6 +6,73 @@
 }
 
 :root {
+    /* Window */
+    --window-border-tb: 1.37vh;
+    --window-border-lr: 3vw;
+
     /* COLORS */
     --primary-color: #0040ff;
+    --dark-gray: #444a5a;
+    --light-gray: #e5e5e7;
+    --background-color: #fff;
+
+    /* Radius */
+    --radius: 8px;
+    --round-radius: 10000px;
+
+    /* Item */
+    --item-padding-tb: 8px;
+    --item-padding-lr: 12px;
+    --item-gap: 4px;
+    --item-border-size: 2px;
+
+    /* Font */
+    --text-font-size: 16px;
+}
+
+/* Global */
+
+.app {
+    width: 100%;
+    min-height: 100vh;
+}
+
+ul {
+    list-style: none;
+}
+
+button,
+li,
+p {
+    font-weight: 500;
+    font-size: var(--text-font-size);
+    color: var(--dark-gray);
+}
+
+button {
+    cursor: pointer;
+    background: none;
+    outline: none;
+}
+
+/* Button */
+
+button.secondary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--item-padding-tb) var(--item-padding-lr);
+    gap: var(--item-gap);
+    border-radius: var(--radius);
+    font-size: var(--text-font-size);
+    border: var(--item-border-size) solid var(--light-gray);
+}
+
+button.fullwidth {
+    font-size: 24px;
+}
+
+button.secondary.fullwidth {
+    width: 100%;
+    justify-content: space-between;
 }

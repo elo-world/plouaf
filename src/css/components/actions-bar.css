@@ -1,0 +1,6 @@
+.actions-bar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: var(--window-border-tb) var(--window-border-lr);
+}

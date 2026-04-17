@@ -1,2 +1,10 @@
 @import url("font.css");
 @import url("global.css");
+
+/* Components */
+@import url("components/header.css");
+@import url("components/actions-bar.css");
+@import url("components/menu.css");
+
+/* Pages */
+@import url("pages/heads_or_tails.css");
