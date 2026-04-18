@@ -1,5 +1,5 @@
 import { useRef, useEffect, useCallback, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import { LanguageContext } from "../context/LanguageContext";
 import translations from "../components/Translations";
@@ -54,7 +54,7 @@ const Menu = ({ isOpen, toggle }) => {
 
     const snapTo = useCallback((y) => {
         const s = sheetRef.current.style;
-        s.transition = "transform 0.3s ease";
+        s.transition = "transform 300ms ease";
         s.transform = `translateY(${y}px)`;
         currentY.current = y;
     }, []);
@@ -114,6 +114,7 @@ const Menu = ({ isOpen, toggle }) => {
                         </button>
                     </li>
                 </ul>
+                <Link to="/about">À propos de plouaf!</Link>
             </div>
         </div>
     );

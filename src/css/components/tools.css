@@ -1,0 +1,31 @@
+.tools {
+    position: fixed;
+    left: 0;
+    bottom: calc(
+        var(--icon-size) + 4 * var(--item-border-size) + var(--window-border-tb) + 2 * var(--item-padding-lr)
+    );
+    display: flex;
+    padding: 0 0 0 var(--window-border-lr);
+    width: 100%;
+}
+
+.tools ul {
+    padding-right: var(--window-border-lr);
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: var(--item-padding-lr);
+    scroll-behavior: smooth;
+}
+
+.tools ul::-webkit-scrollbar {
+    display: none;
+}
+
+.tools ul li,
+.tools ul li button,
+.tools ul li label {
+    flex: 0 0 auto;
+    cursor: pointer;
+}

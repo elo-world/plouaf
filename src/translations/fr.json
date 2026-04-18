@@ -2,11 +2,20 @@
     "language": "Français",
     "pages": {
         "RandomDraw": {
-            "title": "Tirage au sort"
+            "title": "Random Draw"
         },
         "HeadsOrTails": {
             "title": "Heads or Tails",
             "flip": "Flip the coin"
+        },
+        "Die": {
+            "title": "Roll a die"
+        },
+        "RandomNumberGenerator": {
+            "title": "Number"
+        },
+        "About": {
+            "title": "About"
         }
     }
 }

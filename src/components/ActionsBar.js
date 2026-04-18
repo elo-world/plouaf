@@ -16,28 +16,11 @@ function ActionsBar({ path, toggleMenu }) {
         ].title;
 
     return (
-        <div className="actions-bar">
-            <ul className="options-btn" style={{ display: `${mode === "random-draw" ? "flex" : "none"}` }}>
-                <li>
-                    <button className="tertiary yellow">Importer</button>
-                </li>
-                <li>
-                    <button className="tertiary green">Coller Liste</button>
-                </li>
-                <li>
-                    <button className="tertiary blue">Exporter</button>
-                </li>
-            </ul>
-            <div className="change-mode">
-                <div className="input-bar" style={{ display: `${mode === "random-draw" ? "flex" : "none"}` }}>
-                    <input mode="text" />
-                    <button className="sendItem">^</button>
-                </div>
-                <button className="secondary fullwidth" onClick={toggleMenu}>
-                    {modeTitle}
-                    <img src={`./images/menu/${mode}.svg`} alt={`${modeTitle} Icon`} />
-                </button>
-            </div>
+        <div className={`actions-bar ${mode === "random-draw" ? "mode-random-draw" : ""}`}>
+            <button className={`secondary ${mode === "random-draw" ? "" : "fullwidth"}`} onClick={toggleMenu}>
+                <p style={{ display: `${mode === "random-draw" ? "none" : "block"}` }}>{modeTitle}</p>
+                <img src={`./images/menu/${mode}.svg`} alt={`${modeTitle} Icon`} />
+            </button>
         </div>
     );
 }

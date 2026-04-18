@@ -6,6 +6,11 @@ import translations from "../components/Translations";
 function Header({ show, status, toggleMenu }) {
     const { lang, setLang } = useContext(LanguageContext);
 
+    const changeLang = (language) => {
+        setLang(language);
+        localStorage.setItem("language", language);
+    };
+
     return (
         <header>
             <img
@@ -23,7 +28,7 @@ function Header({ show, status, toggleMenu }) {
                     {translations["languages"]
                         .filter((language) => language !== lang)
                         .map((language) => (
-                            <li key={language} onClick={() => setLang(language)}>
+                            <li key={language} onClick={() => changeLang(language)}>
                                 {translations[language].language}
                             </li>
                         ))}

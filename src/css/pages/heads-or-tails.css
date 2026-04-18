@@ -1,0 +1,13 @@
+.heads-or-tails {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 60vh;
+    padding: 0 var(--content-border-lr);
+    cursor: pointer;
+}
+
+.heads-or-tails img {
+    height: 50vh;
+}

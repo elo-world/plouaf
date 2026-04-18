@@ -1,6 +1,15 @@
 .actions-bar {
-    position: absolute;
+    position: fixed;
     bottom: 0;
+    right: 0;
     width: 100%;
     padding: var(--window-border-tb) var(--window-border-lr);
+}
+
+.actions-bar.mode-random-draw {
+    width: fit-content;
+}
+
+.actions-bar.mode-random-draw button.secondary {
+    padding: 2px;
 }

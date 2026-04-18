@@ -13,6 +13,9 @@
         },
         "RandomNumberGenerator": {
             "title": "Number"
+        },
+        "About": {
+            "title": "About"
         }
     }
 }

@@ -1,0 +1,84 @@
+.edit-list {
+    margin-top: 2rem;
+    padding: 0 var(--content-border-lr);
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.edit-list .items {
+    height: 100%;
+    display: flex;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    gap: var(--item-padding-lr);
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: calc(3 * var(--item-padding-lr)) 0;
+    scroll-behavior: smooth;
+}
+
+.edit-list .items .item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: var(--item-padding-tb) var(--item-padding-lr);
+    gap: var(--item-padding-lr);
+    border-radius: var(--radius);
+    font-size: var(--text-font-size);
+    border: var(--item-border-size) solid var(--light-gray);
+}
+
+.edit-list .items .item img {
+    height: 24px;
+    cursor: pointer;
+}
+
+.edit-list .items .item button {
+    display: flex;
+    align-items: center;
+    border: none;
+    color: var(--light-red);
+}
+
+.edit-list .input-box {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: calc(100vw - var(--window-border-lr) * 2 - var(--icon-size));
+    padding: var(--window-border-tb) var(--window-border-lr);
+}
+
+.edit-list .input-bar {
+    position: relative;
+    width: 100%;
+}
+
+.edit-list .input-bar input {
+    width: 100%;
+    height: calc(var(--icon-size) + 4 * var(--item-border-size));
+    border-radius: var(--round-radius);
+    border: none;
+    outline: none;
+    background: var(--light-gray);
+    padding-left: 32px;
+}
+
+.edit-list .input-bar button {
+    position: absolute;
+    top: 50%;
+    right: calc(var(--item-border-size) * 2);
+    width: var(--icon-size);
+    height: var(--icon-size);
+    background: var(--primary-color);
+    border-radius: var(--round-radius);
+    border: none;
+    transform: translateY(-50%);
+}
+
+.edit-list .input-bar button svg {
+    color: #fff;
+}

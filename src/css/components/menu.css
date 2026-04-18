@@ -25,18 +25,17 @@
 }
 
 .menu-content {
-    padding-top: 3rem;
+    padding-bottom: 2rem;
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     overflow-y: auto;
 }
 
 .menu-content ul {
     width: 100%;
     list-style-type: none;
+    margin: 2rem 0;
 }
 
 .menu-content ul li {
@@ -47,14 +46,7 @@
     align-items: center;
 }
 
-.menu-content ul li a {
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    border: 1px solid var(--active-color);
-    border-radius: var(--button-border-radius);
-    padding: var(--button-padding-top-bottom) 0;
-    margin-bottom: 1.5rem;
+.menu-content a {
+    font-weight: 500;
+    color: var(--primary-color);
 }

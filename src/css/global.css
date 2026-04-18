@@ -10,10 +10,20 @@
     --window-border-tb: 1.37vh;
     --window-border-lr: 3vw;
 
+    --content-border-lr: 10vw;
+
     /* COLORS */
     --primary-color: #0040ff;
     --dark-gray: #444a5a;
     --light-gray: #e5e5e7;
+    --dark-yellow: #806400;
+    --light-yellow: #ffe791;
+    --dark-green: #075900;
+    --light-green: #9aff91;
+    --dark-blue: #364264;
+    --light-blue: #ccd9ff;
+    --dark-red: #410000;
+    --light-red: #ff8080;
     --background-color: #fff;
 
     /* Radius */
@@ -26,6 +36,8 @@
     --item-gap: 4px;
     --item-border-size: 2px;
 
+    /* Icon */
+    --icon-size: 48px;
     /* Font */
     --text-font-size: 16px;
 }
@@ -43,10 +55,21 @@ ul {
 
 button,
 li,
+input,
 p {
     font-weight: 500;
     font-size: var(--text-font-size);
     color: var(--dark-gray);
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
 }
 
 button {
@@ -56,6 +79,36 @@ button {
 }
 
 /* Button */
+
+button.primary {
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 64px;
+    padding: var(--item-padding-tb) var(--item-padding-lr);
+    gap: var(--item-gap);
+    border-radius: var(--radius);
+    font-size: var(--text-font-size);
+    border: none;
+    background: var(--primary-color);
+    transition: background 500ms ease;
+}
+
+button.primary:disabled {
+    background: var(--light-gray);
+}
+
+button.primary p {
+    color: var(--background-color);
+    font-size: 24px;
+    transition: color 500ms ease;
+}
+
+button.primary:disabled p {
+    color: var(--dark-gray);
+}
 
 button.secondary {
     display: flex;
@@ -68,11 +121,43 @@ button.secondary {
     border: var(--item-border-size) solid var(--light-gray);
 }
 
-button.fullwidth {
+button.fullwidth,
+button.fullwidth p {
     font-size: 24px;
 }
 
 button.secondary.fullwidth {
     width: 100%;
     justify-content: space-between;
+}
+
+button.tertiary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--item-padding-tb) var(--item-padding-lr);
+    gap: calc(var(--item-gap) * 2);
+    border-radius: var(--round-radius);
+    font-size: var(--text-font-size);
+    border: none;
+}
+
+button.tertiary.yellow {
+    background: var(--light-yellow);
+    color: var(--dark-yellow);
+}
+
+button.tertiary.green {
+    background: var(--light-green);
+    color: var(--dark-green);
+}
+
+button.tertiary.blue {
+    background: var(--light-blue);
+    color: var(--dark-blue);
+}
+
+button.tertiary.red {
+    background: var(--light-red);
+    color: var(--dark-red);
 }
