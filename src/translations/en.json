@@ -9,7 +9,7 @@
             "flip": "Flip the coin"
         },
         "Die": {
-            "title": "Roll a die"
+            "title": "Roll the die"
         },
         "RandomNumberGenerator": {
             "title": "Number"

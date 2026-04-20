@@ -4,7 +4,7 @@ import { HashRouter, Route, Routes, Navigate } from "react-router-dom";
 
 // Pages
 import App from "./App";
-import RandomDraw from "./pages/RandomDraw";
+import RandomDrawWrapper from "./pages/RandomDrawWrapper";
 import HeadsOrTails from "./pages/HeadsOrTails";
 import Die from "./pages/Die";
 import RandomNumberGenerator from "./pages/RandomNumberGenerator";
@@ -23,8 +23,8 @@ root.render(
             <HashRouter>
                 <Routes>
                     <Route path="/" element={<App />}>
-                        <Route index element={<RandomDraw />} />
-                        <Route path="random-draw" element={<RandomDraw />} />
+                        <Route index element={<RandomDrawWrapper />} />
+                        <Route path="random-draw" element={<RandomDrawWrapper />} />
                         <Route path="heads-or-tails" element={<HeadsOrTails />} />
                         <Route path="die" element={<Die />} />
                         <Route path="random-number-generator" element={<RandomNumberGenerator />} />

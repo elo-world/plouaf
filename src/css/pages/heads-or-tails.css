@@ -1,9 +1,13 @@
 .heads-or-tails {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 60vh;
     padding: 0 var(--content-border-lr);
     cursor: pointer;
 }

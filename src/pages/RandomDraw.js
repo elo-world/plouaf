@@ -1,7 +1,9 @@
-import { Component } from "react";
+import { Component} from "react";
 import LZString from "lz-string";
 import EditList from "../components/EditList";
 import ItemResult from "../components/ItemResult";
+
+import translations from "../components/Translations";
 
 class RandomDraw extends Component {
     constructor(props) {
@@ -185,6 +187,8 @@ class RandomDraw extends Component {
     };
 
     componentDidMount() {
+        document.title = `plouaf ! - ${translations[this.props.lang].pages.RandomDraw.title}`;
+
         const array = localStorage.getItem("items") ? JSON.parse(localStorage.getItem("items")) : [];
         const duckArray = localStorage.getItem("ducks") ? JSON.parse(localStorage.getItem("ducks")) : [];
 

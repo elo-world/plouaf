@@ -56,7 +56,7 @@ const Die = () => {
                 <img src="./images/die/face-5.svg" className="face face-5" alt="Face 5" />
                 <img src="./images/die/face-6.svg" className="face face-6" alt="Face 6" />
             </div>
-            <p className="result">{isRolling ? "..." : (face ?? "")}</p>
+            <p className="result">{isRolling ? "..." : "Roll the die"}</p>
         </section>
     );
 };

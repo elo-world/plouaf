@@ -2,7 +2,7 @@ const Tools = ({ items, readFile, readClipBoard, dowloadList, removeAllItems }) 
     return (
         <div className="tools">
             <div className="relative">
-                <ul onScroll={(e) => console.log(e)}>
+                <ul>
                     <li>
                         <button
                             className="tertiary red"
