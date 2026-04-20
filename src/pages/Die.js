@@ -11,7 +11,7 @@ const faceRotations = {
     6: { x: 90, y: 0 },
 };
 
-const SPIN = 1800; // 5 full rotations
+const SPIN = 1080;
 
 const Die = () => {
     const { lang } = useContext(LanguageContext);
