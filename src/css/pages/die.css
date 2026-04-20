@@ -1,0 +1,45 @@
+.roll-the-die {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 60vh;
+    padding: 0 var(--content-border-lr);
+    cursor: pointer;
+}
+
+.roll-the-die .die {
+    position: relative;
+    height: 25vh;
+    width: 25vh;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transition: transform 3s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.roll-the-die .die .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.roll-the-die .die .face-1 {
+    transform: rotateY(0deg) translateZ(12.5vh);
+}
+.roll-the-die .die .face-2 {
+    transform: rotateY(180deg) translateZ(12.5vh);
+}
+.roll-the-die .die .face-3 {
+    transform: rotateY(90deg) translateZ(12.5vh);
+}
+.roll-the-die .die .face-4 {
+    transform: rotateY(-90deg) translateZ(12.5vh);
+}
+.roll-the-die .die .face-5 {
+    transform: rotateX(90deg) translateZ(12.5vh);
+}
+.roll-the-die .die .face-6 {
+    transform: rotateX(-90deg) translateZ(12.5vh);
+}

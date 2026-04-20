@@ -1,12 +1,13 @@
-@import url("font.css");
-@import url("global.css");
+@import url("./font.css");
+@import url("./global.css");
 
 /* Components */
-@import url("components/header.css");
-@import url("components/actions-bar.css");
-@import url("components/menu.css");
-@import url("components/edit-list.css");
-@import url("components/tools.css");
+@import url("./components/header.css");
+@import url("./components/actions-bar.css");
+@import url("./components/menu.css");
+@import url("./components/edit-list.css");
+@import url("./components/tools.css");
 
 /* Pages */
-@import url("pages/heads-or-tails.css");
+@import url("./pages/heads-or-tails.css");
+@import url("./pages/die.css");
