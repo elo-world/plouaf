@@ -3,29 +3,29 @@
     "name": "plouaf!",
     "icons": [
         {
-            "src": "/images/icons/app/favicon.ico",
+            "src": "./images/icons/app/favicon.ico",
             "sizes": "64x64 32x32 24x24 16x16",
             "type": "image/x-icon"
         },
         {
-            "src": "/images/icons/app/logo192.png",
+            "src": "./images/icons/app/logo192.png",
             "type": "image/png",
             "sizes": "192x192"
         },
         {
-            "src": "/images/icons/app/logo512.png",
+            "src": "./images/icons/app/logo512.png",
             "type": "image/png",
             "sizes": "512x512"
         }
     ],
     "screenshots": [
         {
-            "src": "/images/screenshots/mobile.png",
+            "src": "./images/screenshots/mobile.png",
             "sizes": "540x720",
             "type": "image/png"
         },
         {
-            "src": "/images/screenshots/desktop.png",
+            "src": "./images/screenshots/desktop.png",
             "sizes": "1280x720",
             "type": "image/png",
             "form_factor": "wide"

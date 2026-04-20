@@ -9,9 +9,14 @@
     width: 100%;
 }
 
-.tools ul {
-    padding-right: var(--window-border-lr);
+.tools div.relative {
+    position: relative;
+    width: 100%;
+}
+
+.tools div ul {
     display: flex;
+    padding-right: var(--window-border-lr);
     width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
@@ -19,13 +24,23 @@
     scroll-behavior: smooth;
 }
 
-.tools ul::-webkit-scrollbar {
+.tools div ul::-webkit-scrollbar {
     display: none;
 }
 
-.tools ul li,
-.tools ul li button,
-.tools ul li label {
+.tools div ul li,
+.tools div ul li button,
+.tools div ul li label {
     flex: 0 0 auto;
     cursor: pointer;
+}
+
+.tools div .gradient {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: calc(2 * var(--window-border-lr));
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, var(--background-color) 100%);
 }

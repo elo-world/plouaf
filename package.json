@@ -1,5 +1,6 @@
 {
     "name": "plouaf",
+    "homepage": "https://elo-world.github.io/plouaf",
     "version": "0.1.0",
     "private": true,
     "dependencies": {

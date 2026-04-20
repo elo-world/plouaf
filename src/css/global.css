@@ -80,7 +80,7 @@ button {
 
 /* Button */
 
-button.primary {
+.primary {
     display: flex;
     flex-shrink: 0;
     justify-content: center;
@@ -96,21 +96,21 @@ button.primary {
     transition: background 500ms ease;
 }
 
-button.primary:disabled {
+.primary:disabled {
     background: var(--light-gray);
 }
 
-button.primary p {
+.primary p {
     color: var(--background-color);
     font-size: 24px;
     transition: color 500ms ease;
 }
 
-button.primary:disabled p {
+.primary:disabled p {
     color: var(--dark-gray);
 }
 
-button.secondary {
+.secondary {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -121,17 +121,17 @@ button.secondary {
     border: var(--item-border-size) solid var(--light-gray);
 }
 
-button.fullwidth,
-button.fullwidth p {
+.fullwidth,
+.fullwidth p {
     font-size: 24px;
 }
 
-button.secondary.fullwidth {
+.secondary.fullwidth {
     width: 100%;
     justify-content: space-between;
 }
 
-button.tertiary {
+.tertiary {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -142,22 +142,22 @@ button.tertiary {
     border: none;
 }
 
-button.tertiary.yellow {
+.tertiary.yellow {
     background: var(--light-yellow);
     color: var(--dark-yellow);
 }
 
-button.tertiary.green {
+.tertiary.green {
     background: var(--light-green);
     color: var(--dark-green);
 }
 
-button.tertiary.blue {
+.tertiary.blue {
     background: var(--light-blue);
     color: var(--dark-blue);
 }
 
-button.tertiary.red {
+.tertiary.red {
     background: var(--light-red);
     color: var(--dark-red);
 }

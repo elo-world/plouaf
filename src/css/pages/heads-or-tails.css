@@ -8,6 +8,23 @@
     cursor: pointer;
 }
 
-.heads-or-tails img {
+.heads-or-tails .coin {
+    position: relative;
     height: 50vh;
+    width: 50vh;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transition: transform 3s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.heads-or-tails .coin img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.heads-or-tails .coin .tails {
+    transform: rotateX(180deg);
 }
