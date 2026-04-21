@@ -161,3 +161,14 @@ button {
     background: var(--light-red);
     color: var(--dark-red);
 }
+
+/* Input */
+input.input-number {
+    background: var(--light-gray);
+    color: var(--dark-gray);
+    padding: var(--item-padding-tb) var(--item-padding-lr);
+    border-radius: var(--radius);
+    border: none;
+    outline: none;
+    width: fit-content;
+}
