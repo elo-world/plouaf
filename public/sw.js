@@ -2,14 +2,7 @@
 /* eslint-env serviceworker */
 
 const CACHE_VERSION = "v1.0.0";
-const urlsToCache = [
-    "./",
-    "./index.html",
-    "./app.js",
-    "./styles.css",
-    "./manifest.json",
-    "./icons/icon-192.png",
-];
+const urlsToCache = ["./", "./index.html"];
 
 self.addEventListener("install", (event) => {
     self.skipWaiting();
