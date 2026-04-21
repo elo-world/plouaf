@@ -32,8 +32,3 @@
 .heads-or-tails .coin .tails {
     transform: rotateX(180deg);
 }
-
-.heads-or-tails p {
-    margin-top: 2rem;
-    color: var(--dark-gray);
-}

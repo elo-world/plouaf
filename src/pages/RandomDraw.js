@@ -1,9 +1,9 @@
-import { Component} from "react";
+import { Component } from "react";
 import LZString from "lz-string";
 import EditList from "../components/EditList";
 import ItemResult from "../components/ItemResult";
-
 import translations from "../components/Translations";
+import { decodeShareParam } from "../utils/shareUtils";
 
 class RandomDraw extends Component {
     constructor(props) {
@@ -17,13 +17,18 @@ class RandomDraw extends Component {
             duckChoices: ["yellow", "red", "green", "blue", "pink"],
             selectedIndex: [],
             decompressItem: "",
+            // Share: true when the page was opened from a shared link
+            isSharedResult: false,
         };
     }
 
     activeEditMode = () => {
-        this.setState({
-            editMode: true,
-        });
+        // Clear the share param from the URL when the user goes back to edit
+        if (this.state.isSharedResult) {
+            const { pathname } = this.props.location; // injected by withLocation HOC
+            window.history.replaceState(null, "", `#${pathname}`);
+        }
+        this.setState({ editMode: true, isSharedResult: false });
     };
 
     drawItem = (items) => {
@@ -31,9 +36,7 @@ class RandomDraw extends Component {
 
         if (this.state.editMode === true) {
             selectedIndexList = Array.from({ length: this.state.items.length }, (_, i) => i);
-            this.setState({
-                selectedIndex: selectedIndexList,
-            });
+            this.setState({ selectedIndex: selectedIndexList });
         } else {
             selectedIndexList = items;
         }
@@ -42,9 +45,14 @@ class RandomDraw extends Component {
 
         this.setState({
             editMode: false,
+            isSharedResult: false,
             itemIndex: randomIndex,
             decompressItem: LZString.decompress(this.state.items[randomIndex]),
         });
+
+        // Clear share param from URL when a new draw is made
+        const { pathname } = this.props.location;
+        window.history.replaceState(null, "", `#${pathname}`);
     };
 
     drawItemWithout = (items, deselectedItemIndex) => {
@@ -60,15 +68,10 @@ class RandomDraw extends Component {
                 ...this.state.ducks,
                 this.state.duckChoices[Math.floor(Math.random() * this.state.duckChoices.length)],
             ];
-            this.setState({
-                input: "",
-                items: array,
-                ducks: duckArray,
-            });
+            this.setState({ input: "", items: array, ducks: duckArray });
             localStorage.setItem("items", JSON.stringify(array));
             localStorage.setItem("ducks", JSON.stringify(duckArray));
         }
-
         document.getElementById("input").focus();
     };
 
@@ -77,10 +80,7 @@ class RandomDraw extends Component {
         const duckArray = this.state.ducks;
         array.splice(index, 1);
         duckArray.splice(index, 1);
-        this.setState({
-            items: array,
-            ducks: duckArray,
-        });
+        this.setState({ items: array, ducks: duckArray });
         localStorage.setItem("items", JSON.stringify(array));
         localStorage.setItem("ducks", JSON.stringify(duckArray));
     };
@@ -88,34 +88,21 @@ class RandomDraw extends Component {
     changeDuck = (index) => {
         const duckArray = [...this.state.ducks];
         const duckChoices = [...this.state.duckChoices];
-
         duckChoices.splice(duckChoices.indexOf(duckArray[index]), 1);
-
         duckArray.splice(index, 1);
-        console.log(duckChoices, duckChoices[Math.floor(Math.random() * duckChoices.length)]);
-
         duckArray.splice(index, 0, duckChoices[Math.floor(Math.random() * duckChoices.length)]);
-
-        this.setState({
-            ducks: duckArray,
-        });
+        this.setState({ ducks: duckArray });
         localStorage.setItem("ducks", JSON.stringify(duckArray));
     };
 
     removeAllItems = () => {
-        this.setState({
-            items: [],
-            ducks: [],
-        });
-
+        this.setState({ items: [], ducks: [] });
         localStorage.setItem("items", JSON.stringify([]));
         localStorage.setItem("ducks", JSON.stringify([]));
     };
 
     onInputChange = (e) => {
-        this.setState({
-            input: e.target.value,
-        });
+        this.setState({ input: e.target.value });
     };
 
     readClipBoard = async () => {
@@ -151,10 +138,7 @@ class RandomDraw extends Component {
                         );
                     }
                 }
-                this.setState({
-                    items: compressArray,
-                    ducks: duckArray,
-                });
+                this.setState({ items: compressArray, ducks: duckArray });
                 localStorage.setItem("items", JSON.stringify(compressArray));
                 localStorage.setItem("ducks", JSON.stringify(duckArray));
             };
@@ -169,20 +153,14 @@ class RandomDraw extends Component {
         for (const item of this.state.items) {
             decompressItems.push(LZString.decompress(item));
         }
-
         const text = decompressItems.join("\n");
-        const filename = "plouaf.txt";
-
         const blob = new Blob([text], { type: "text/plain" });
-
         const link = document.createElement("a");
         link.href = URL.createObjectURL(blob);
-        link.download = filename;
-
+        link.download = "plouaf.txt";
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-
         URL.revokeObjectURL(link.href);
     };
 
@@ -191,11 +169,41 @@ class RandomDraw extends Component {
 
         const array = localStorage.getItem("items") ? JSON.parse(localStorage.getItem("items")) : [];
         const duckArray = localStorage.getItem("ducks") ? JSON.parse(localStorage.getItem("ducks")) : [];
+        this.setState({ items: array, ducks: duckArray });
 
-        this.setState({
-            items: array,
-            ducks: duckArray,
-        });
+        // ── Read shared result from URL ──────────────────────────────────────
+        // HashRouter puts query params after the hash: /#/random-draw?result=…
+        // window.location.hash is "#/random-draw?result=…", so we split on "?"
+        const hashParts = window.location.hash.split("?");
+        if (hashParts.length > 1) {
+            const searchParams = new URLSearchParams(hashParts[1]);
+            const raw = searchParams.get("result");
+            if (raw) {
+                const shared = decodeShareParam(raw);
+                if (shared && typeof shared.drawn === "number" && Array.isArray(shared.items)) {
+                    const drawnItem = LZString.decompress(shared.items[shared.drawn]) || "";
+                    const selectedIndexList = Array.from({ length: shared.items.length }, (_, i) => i);
+                    const sharedDucks = shared.items.map(
+                        () =>
+                            this.state.duckChoices[Math.floor(Math.random() * this.state.duckChoices.length)],
+                    );
+
+                    // Persist the imported list so it survives a page refresh
+                    localStorage.setItem("items", JSON.stringify(shared.items));
+                    localStorage.setItem("ducks", JSON.stringify(sharedDucks));
+
+                    this.setState({
+                        items: shared.items,
+                        ducks: sharedDucks,
+                        editMode: false,
+                        isSharedResult: true,
+                        itemIndex: shared.drawn,
+                        decompressItem: drawnItem,
+                        selectedIndex: selectedIndexList,
+                    });
+                }
+            }
+        }
 
         window.addEventListener("keydown", (e) => {
             if (e.key === "Enter") {
@@ -232,6 +240,8 @@ class RandomDraw extends Component {
                     drawItem={this.drawItem}
                     drawItemWithout={this.drawItemWithout}
                     activeEditMode={this.activeEditMode}
+                    isSharedResult={this.state.isSharedResult}
+                    location={this.props.location}
                 />
             </div>
         );

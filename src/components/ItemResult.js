@@ -37,26 +37,26 @@ const ItemResult = ({
     };
 
     return (
-        <div className="item_result" style={{ display: `${!editMode ? "block" : "none"}` }}>
+        <div className="item-result" style={{ display: `${!editMode ? "block" : "none"}` }}>
             {isSharedResult && (
                 <p className="shared-result-banner">🎲 Shared result</p>
             )}
             <p>{items.length > 0 ? decompressItem : "No result"}</p>
-            <div className="action_buttons">
-                <button className="edit_list_button" onClick={activeEditMode}>
+            <div className="action-buttons">
+                <button className="edit-list-button" onClick={activeEditMode}>
                     Edit liste
                 </button>
                 {/* Share button — only shown when there is a real result */}
                 {items.length > 0 && (
-                    <button className="share_button" onClick={handleShare}>
+                    <button className="share-button" onClick={handleShare}>
                         {copied ? "✅ Copied!" : "🔗 Share"}
                     </button>
                 )}
-                <button className="other_result_button" onClick={() => drawItem(selectedIndex)}>
+                <button className="other-result-button" onClick={() => drawItem(selectedIndex)}>
                     Autre résultat
                 </button>
                 <button
-                    className="draw_without_button"
+                    className="draw-without-button"
                     style={{
                         display: `${selectedIndex.length > 2 ? "block" : "none"}`,
                     }}

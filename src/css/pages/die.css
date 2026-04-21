@@ -47,8 +47,3 @@
 .roll-the-die .die .face-6 {
     transform: rotateX(-90deg) translateZ(12.5vh);
 }
-
-.roll-the-die p.result {
-    margin-top: 2rem;
-    color: var(--dark-gray);
-}
