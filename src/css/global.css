@@ -163,12 +163,12 @@ button {
 }
 
 /* Input */
-input.input-number {
+.input-number {
+    text-align: center;
     background: var(--light-gray);
     color: var(--dark-gray);
     padding: var(--item-padding-tb) var(--item-padding-lr);
     border-radius: var(--radius);
     border: none;
     outline: none;
-    width: fit-content;
 }
