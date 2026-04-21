@@ -32,11 +32,10 @@ const HeadsOrTails = () => {
 
     return (
         <section className="heads-or-tails" onClick={flip}>
-            <div className="coin" id="coin">
+            <div className={`coin ${face}`} id="coin">
                 <img src={`./images/heads-or-tails/heads.svg`} className="heads" alt="Heads" />
                 <img src={`./images/heads-or-tails/tails.svg`} className="tails" alt="Tails" />
             </div>
-            <p className="flip-the-coin">{isFlipping ? "..." : translations[lang].pages.HeadsOrTails.flip}</p>
         </section>
     );
 };

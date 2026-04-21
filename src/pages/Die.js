@@ -48,7 +48,7 @@ const Die = () => {
 
     return (
         <section className="roll-the-die" onClick={roll}>
-            <div className="die" id="die">
+            <div className={`die ${face}`} id="die">
                 <img src="./images/die/face-1.svg" className="face face-1" alt="Face 1" />
                 <img src="./images/die/face-2.svg" className="face face-2" alt="Face 2" />
                 <img src="./images/die/face-3.svg" className="face face-3" alt="Face 3" />
@@ -56,7 +56,6 @@ const Die = () => {
                 <img src="./images/die/face-5.svg" className="face face-5" alt="Face 5" />
                 <img src="./images/die/face-6.svg" className="face face-6" alt="Face 6" />
             </div>
-            <p className="result">{isRolling ? "..." : "Roll the die"}</p>
         </section>
     );
 };
