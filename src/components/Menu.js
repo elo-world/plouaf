@@ -59,6 +59,8 @@ const Menu = ({ isOpen, toggle }) => {
         currentY.current = y;
     }, []);
 
+    const isOpenRef = useRef(isOpen);
+
     useEffect(() => {
         const sheet = sheetRef.current;
         sheet.style.visibility = "hidden";
@@ -66,12 +68,12 @@ const Menu = ({ isOpen, toggle }) => {
         requestAnimationFrame(() => {
             const rect = sheet.getBoundingClientRect();
             maxY.current = rect.height;
-            const startPos = isOpen ? 0 : rect.height;
-            sheet.style.transform = `translateY(${startPos}%)`;
+            const startPos = isOpenRef.current ? 0 : rect.height;
+            sheet.style.transform = `translateY(${startPos}px)`;
             currentY.current = startPos;
             sheet.style.visibility = "visible";
         });
-    }, [isOpen]);
+    }, []);
 
     useEffect(() => {
         if (maxY.current === 0) return;
