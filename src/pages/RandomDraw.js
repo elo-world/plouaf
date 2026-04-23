@@ -165,7 +165,7 @@ class RandomDraw extends Component {
     };
 
     componentDidMount() {
-        document.title = `plouaf ! - ${translations[this.props.lang].pages.RandomDraw.title}`;
+        document.title = `plouaf! - ${translations[this.props.lang].pages.RandomDraw.title}`;
 
         const array = localStorage.getItem("items") ? JSON.parse(localStorage.getItem("items")) : [];
         const duckArray = localStorage.getItem("ducks") ? JSON.parse(localStorage.getItem("ducks")) : [];

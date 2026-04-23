@@ -48,7 +48,7 @@ const RandomNumberGenerator = () => {
             : "Ex : 1, 2, ..., 10";
 
     useEffect(() => {
-        document.title = `plouaf ! - ${translations[lang].pages.RandomNumberGenerator.title}`;
+        document.title = `plouaf! - ${translations[lang].pages.RandomNumberGenerator.title}`;
     }, [lang]);
 
     return (

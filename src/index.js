@@ -16,9 +16,6 @@ import { LanguageProvider } from "./context/LanguageContext";
 // Import CSS
 import "./css/index.css";
 
-// Service Worker
-import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>
@@ -39,6 +36,3 @@ root.render(
         </LanguageProvider>
     </React.StrictMode>,
 );
-
-// Register service worker for offline support + caching
-serviceWorkerRegistration.register();

@@ -27,7 +27,7 @@ const HeadsOrTails = () => {
     };
 
     useEffect(() => {
-        document.title = `plouaf ! - ${translations[lang].pages.HeadsOrTails.title}`;
+        document.title = `plouaf! - ${translations[lang].pages.HeadsOrTails.title}`;
     }, [lang]);
 
     return (

@@ -43,7 +43,7 @@ const Die = () => {
     };
 
     useEffect(() => {
-        document.title = `plouaf ! - ${translations[lang].pages.Die.title}`;
+        document.title = `plouaf! - ${translations[lang].pages.Die.title}`;
     }, [lang]);
 
     return (
