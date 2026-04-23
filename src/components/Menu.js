@@ -59,8 +59,6 @@ const Menu = ({ isOpen, toggle }) => {
         currentY.current = y;
     }, []);
 
-    const isOpenRef = useRef(isOpen);
-
     useEffect(() => {
         const sheet = sheetRef.current;
         sheet.style.visibility = "hidden";
@@ -68,9 +66,8 @@ const Menu = ({ isOpen, toggle }) => {
         requestAnimationFrame(() => {
             const rect = sheet.getBoundingClientRect();
             maxY.current = rect.height;
-            const startPos = isOpenRef.current ? 0 : rect.height;
-            sheet.style.transform = `translateY(${startPos}px)`;
-            currentY.current = startPos;
+            sheet.style.transform = `translateY(${rect.height}%)`;
+            currentY.current = rect.height;
             sheet.style.visibility = "visible";
         });
     }, []);
