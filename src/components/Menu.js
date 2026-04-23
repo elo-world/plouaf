@@ -59,18 +59,19 @@ const Menu = ({ isOpen, toggle }) => {
         currentY.current = y;
     }, []);
 
-    useEffect(() => {
+    const sheetLoaded = () => {
         const sheet = sheetRef.current;
         sheet.style.visibility = "hidden";
 
         requestAnimationFrame(() => {
-            const rect = sheet.getBoundingClientRect();
-            maxY.current = rect.height;
-            sheet.style.transform = `translateY(${rect.height}%)`;
-            currentY.current = rect.height;
+            const height = sheet.scrollHeight;
+            maxY.current = height;
+            const startPos = isOpen ? 0 : height;
+            sheet.style.transform = `translateY(${startPos}px)`;
+            currentY.current = startPos;
             sheet.style.visibility = "visible";
         });
-    }, []);
+    };
 
     useEffect(() => {
         if (maxY.current === 0) return;
@@ -78,7 +79,13 @@ const Menu = ({ isOpen, toggle }) => {
     }, [isOpen, snapTo]);
 
     return (
-        <div ref={sheetRef} className="menu" onMouseDown={onDragStart} onTouchStart={onDragStart}>
+        <div
+            ref={sheetRef}
+            className="menu"
+            onLoad={sheetLoaded}
+            onMouseDown={onDragStart}
+            onTouchStart={onDragStart}
+        >
             <div className="menu-handle" />
             <div className="menu-content">
                 <ul>
