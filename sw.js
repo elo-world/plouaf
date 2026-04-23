@@ -1,115 +1,55 @@
 /* eslint-disable no-restricted-globals */
-/* eslint-env serviceworker */
 
-const CACHE_NAME = "plouaf.v1.0.0";
+// This service worker is based on the CRA PWA template.
+// Workbox is injected automatically by CRA at build time via workbox-webpack-plugin.
+// The self.__WB_MANIFEST placeholder is replaced with the real precache manifest.
 
-// All static assets to pre-cache at install time
-const PRECACHE_URLS = [
-    "/plouaf/",
-    "/plouaf/index.html",
-    "/plouaf/manifest.json",
-    "/plouaf/images/icons/website/favicon.ico",
-    "/plouaf/images/icons/website/apple-touch-icon.png",
-    "/plouaf/images/logo/typo.svg",
-    "/plouaf/images/menu/random-draw.svg",
-    "/plouaf/images/menu/heads-or-tails.svg",
-    "/plouaf/images/menu/die.svg",
-    "/plouaf/images/menu/random-number-generator.svg",
-];
+import { clientsClaim } from "workbox-core";
+import { ExpirationPlugin } from "workbox-expiration";
+import { precacheAndRoute, createHandlerBoundToURL } from "workbox-precaching";
+import { registerRoute } from "workbox-routing";
+import { StaleWhileRevalidate } from "workbox-strategies";
 
-// ─── Install ───────────────────────────────────────────────────────────────
-self.addEventListener("install", (event) => {
-    event.waitUntil(
-        caches
-            .open(CACHE_NAME)
-            .then((cache) => cache.addAll(PRECACHE_URLS))
-            // Activate immediately without waiting for old tabs to close
-            .then(() => self.skipWaiting()),
-    );
-});
+clientsClaim();
 
-// ─── Activate ──────────────────────────────────────────────────────────────
-self.addEventListener("activate", (event) => {
-    event.waitUntil(
-        caches
-            .keys()
-            .then((cacheNames) =>
-                Promise.all(
-                    cacheNames.filter((name) => name !== CACHE_NAME).map((name) => caches.delete(name)),
-                ),
-            )
-            // Take control of all open clients immediately
-            .then(() => self.clients.claim()),
-    );
-});
+// Precache all build assets (JS, CSS, images, etc.)
+// CRA replaces self.__WB_MANIFEST with the real manifest at build time.
+precacheAndRoute(self.__WB_MANIFEST);
 
-// ─── Fetch ─────────────────────────────────────────────────────────────────
-self.addEventListener("fetch", (event) => {
-    const url = new URL(event.request.url);
+// ─── App Shell (index.html) ────────────────────────────────────────────────
+// Since you use HashRouter, ALL navigation requests should return index.html.
+// The hash fragment (#/route) is handled entirely client-side.
+const fileExtensionRegexp = new RegExp("/[^/?]+\\.[^/]+$");
 
-    // Only handle same-origin requests
-    if (url.origin !== self.location.origin) return;
+registerRoute(
+    ({ request, url }) => {
+        if (request.mode !== "navigate") return false;
+        if (url.pathname.startsWith("/_")) return false;
+        if (url.pathname.match(fileExtensionRegexp)) return false;
+        return true;
+    },
+    createHandlerBoundToURL(process.env.PUBLIC_URL + "/index.html"),
+);
 
-    // Strategy: Cache-first for static assets, Network-first for everything else
-    if (isStaticAsset(url.pathname)) {
-        event.respondWith(cacheFirst(event.request));
-    } else {
-        // For navigation requests (HTML), always serve index.html
-        // Hash Router handles the routing client-side, so this is safe
-        event.respondWith(networkFirstWithFallback(event.request));
+// ─── Runtime caching: same-origin assets not in precache ──────────────────
+registerRoute(
+    ({ url }) =>
+        url.origin === self.location.origin &&
+        (url.pathname.endsWith(".png") ||
+            url.pathname.endsWith(".jpg") ||
+            url.pathname.endsWith(".svg") ||
+            url.pathname.endsWith(".webp")),
+    new StaleWhileRevalidate({
+        cacheName: "plouaf-images",
+        plugins: [new ExpirationPlugin({ maxEntries: 50 })],
+    }),
+);
+
+// ─── Update on reload ─────────────────────────────────────────────────────
+// When skipWaiting() is called (e.g. from a "New version available" banner),
+// the new SW activates immediately.
+self.addEventListener("message", (event) => {
+    if (event.data && event.data.type === "SKIP_WAITING") {
+        self.skipWaiting();
     }
 });
-
-// ─── Helpers ───────────────────────────────────────────────────────────────
-
-/**
- * Returns true for file extensions that should be served cache-first.
- */
-function isStaticAsset(pathname) {
-    return /\.(js|css|png|jpg|jpeg|gif|svg|ico|woff2?|ttf|eot|webp|avif)$/i.test(pathname);
-}
-
-/**
- * Cache-first: serve from cache, fall back to network and update cache.
- */
-async function cacheFirst(request) {
-    const cached = await caches.match(request);
-    if (cached) return cached;
-
-    const response = await fetch(request);
-    if (response.ok) {
-        const cache = await caches.open(CACHE_NAME);
-        cache.put(request, response.clone());
-    }
-    return response;
-}
-
-/**
- * Network-first: try network, fall back to cache.
- * For HTML navigation, always fall back to /plouaf/index.html so the
- * Hash Router can take over client-side.
- */
-async function networkFirstWithFallback(request) {
-    try {
-        const response = await fetch(request);
-        if (response.ok) {
-            const cache = await caches.open(CACHE_NAME);
-            cache.put(request, response.clone());
-        }
-        return response;
-    } catch {
-        const cached = await caches.match(request);
-        if (cached) return cached;
-
-        // Last resort for navigation: return the app shell
-        if (request.mode === "navigate") {
-            const fallback = await caches.match("/plouaf/index.html");
-            if (fallback) return fallback;
-        }
-
-        return new Response("Offline — plouaf! is not available right now.", {
-            status: 503,
-            headers: { "Content-Type": "text/plain" },
-        });
-    }
-}
