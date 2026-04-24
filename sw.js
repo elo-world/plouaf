@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-globals */
 /* eslint-env serviceworker */
 
-const CACHE_VERSION = "v1.0.1";
+const CACHE_VERSION = "v1.0.2";
 var urlsToCache = [
     "./",
     "/plouaf/images/duck/blue.svg",
