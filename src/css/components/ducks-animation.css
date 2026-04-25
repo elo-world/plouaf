@@ -1,0 +1,136 @@
+.ducks-animation .result .fishing-rod {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    height: 60vh;
+    transform-origin: top;
+    transform: translate(-50%, -30vh);
+    animation: fishing 5s ease-out;
+    z-index: -100;
+}
+
+.ducks-animation.idle .result .fishing-rod {
+    animation: absolute-fishing-swings 2s linear infinite;
+}
+
+.ducks-animation .result .selected-item {
+    position: fixed;
+    top: 38vh;
+    left: 50%;
+    font-size: 1.5rem;
+}
+
+.ducks-animation.idle .result .selected-item {
+    transition: opacity 500ms;
+    animation: absolute-swings 2s linear infinite;
+}
+
+.ducks-animation .ducks-lane {
+    position: fixed;
+    top: 55vh;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    transition: 5s;
+}
+
+.ducks-animation .ducks-lane .slot-duck {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 8px;
+}
+
+.ducks-animation .ducks-lane .slot-duck.selected-duck img {
+    animation: duck-fished 5s ease-out forwards;
+}
+
+.ducks-animation.idle .ducks-lane .slot-duck.selected-duck img {
+    animation: duck-swings 2s linear infinite;
+}
+
+.ducks-animation.idle .ducks-lane canvas {
+    transition: 800ms;
+}
+
+.ducks-animation .da-water {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 39vh;
+    background: #c7edf9;
+    z-index: -1;
+}
+
+.ducks-animation.idle .da-water {
+    transition: 800ms;
+}
+
+@keyframes duck-swings {
+    0% {
+        transform: scale(1.4) translateY(-20vh) rotate(0);
+    }
+    25% {
+        transform: scale(1.4) translateY(-20vh) rotate(4deg);
+    }
+    75% {
+        transform: scale(1.4) translateY(-20vh) rotate(-4deg);
+    }
+    100% {
+        transform: scale(1.4) translateY(-20vh) rotate(0);
+    }
+}
+
+@keyframes absolute-swings {
+    0% {
+        transform: translateX(-50%) rotate(0);
+    }
+    25% {
+        transform: translateX(-50%) rotate(4deg);
+    }
+    75% {
+        transform: translateX(-50%) rotate(-4deg);
+    }
+    100% {
+        transform: translateX(-50%) rotate(0);
+    }
+}
+
+@keyframes absolute-fishing-swings {
+    0% {
+        transform: translate(-50%, -30vh) rotate(0);
+    }
+    25% {
+        transform: translate(-50%, -30vh) rotate(2deg);
+    }
+    75% {
+        transform: translate(-50%, -30vh) rotate(-2deg);
+    }
+    100% {
+        transform: translate(-50%, -30vh) rotate(0);
+    }
+}
+
+@keyframes fishing {
+    0% {
+        transform: translate(-50%, -100%);
+    }
+    20% {
+        transform: translate(-50%, 0);
+    }
+    90% {
+        transform: translate(-50%, 0) scaleY(1.2);
+        height: 60vh;
+    }
+}
+
+@keyframes duck-fished {
+    90% {
+        transform: none;
+    }
+    100% {
+        transform: scale(1.4) translateY(-20vh);
+    }
+}

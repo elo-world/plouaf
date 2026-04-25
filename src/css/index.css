@@ -8,6 +8,7 @@
 @import url("./components/edit-list.css");
 @import url("./components/item-result.css");
 @import url("./components/tools.css");
+@import url("./components/ducks-animation.css");
 
 /* Pages */
 @import url("./pages/heads-or-tails.css");

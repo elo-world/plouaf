@@ -15,18 +15,22 @@
 
 .edit-list .items {
     height: 100%;
+    width: 100%; /* inherit fixed parent's width */
+    max-width: 100%; /* instead of 100vw */
+    overflow-y: auto;
+    overflow-x: hidden;
     display: flex;
     align-content: flex-start;
     flex-wrap: wrap;
     gap: var(--item-padding-lr);
-    overflow-y: auto;
-    overflow-x: hidden;
     margin: calc(3 * var(--item-padding-lr)) 0;
     scroll-behavior: smooth;
 }
 
 .edit-list .items .item {
     display: flex;
+    overflow-x: clip;
+    overflow-y: auto;
     justify-content: center;
     align-items: center;
     position: relative;
@@ -40,6 +44,11 @@
 .edit-list .items .item img {
     height: 24px;
     cursor: pointer;
+}
+
+.edit-list .items .item .text {
+    overflow-y: hidden;
+    overflow-x: auto;
 }
 
 .edit-list .items .item button {
@@ -59,29 +68,31 @@
 
 .edit-list .input-bar {
     position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
+    background: var(--light-gray);
+    border-radius: var(--round-radius);
+    padding-left: 32px;
+    padding-right: 4px;
 }
 
 .edit-list .input-bar input {
     width: 100%;
     height: calc(var(--icon-size) + 4 * var(--item-border-size));
-    border-radius: var(--round-radius);
     border: none;
     outline: none;
     background: var(--light-gray);
-    padding-left: 32px;
 }
 
 .edit-list .input-bar button {
-    position: absolute;
-    top: 50%;
-    right: calc(var(--item-border-size) * 2);
+    flex-shrink: 0;
     width: var(--icon-size);
     height: var(--icon-size);
     background: var(--primary-color);
     border-radius: var(--round-radius);
     border: none;
-    transform: translateY(-50%);
 }
 
 .edit-list .input-bar button svg {

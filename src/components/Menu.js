@@ -64,7 +64,7 @@ const Menu = ({ isOpen, toggle }) => {
         sheet.style.visibility = "hidden";
 
         requestAnimationFrame(() => {
-            const height = sheet.scrollHeight + 10;
+            const height = sheet.scrollHeight + 10; // + blur of the box shadow.
             maxY.current = height;
             const startPos = isOpen ? 0 : height;
             sheet.style.transform = `translateY(${startPos}px)`;

@@ -2,7 +2,6 @@ import LZString from "lz-string";
 import Tools from "./Tools";
 
 const EditList = ({
-    editMode,
     items,
     ducks,
     selectedIndex,
@@ -18,7 +17,7 @@ const EditList = ({
     removeAllItems,
 }) => {
     return (
-        <div className="edit-list" style={{ display: `${editMode ? "flex" : "none"}` }}>
+        <div className="edit-list">
             <p>Ajoutez des éléments puis tirer au sort !</p>
             <div className="items">
                 {items.map((item, index) => {
@@ -31,7 +30,9 @@ const EditList = ({
                                     src={`./images/duck/${ducks[index]}.svg`}
                                     alt="Duck"
                                 />
-                                <p>{decompressItem}</p>
+                                <div className="text">
+                                    <p>{decompressItem}</p>
+                                </div>
                                 <button className="delete-button" onClick={() => removeItem(index)}>
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +75,7 @@ const EditList = ({
             <div className="input-box">
                 <div className="input-bar">
                     <input
-                        id="input"
+                        id="input-random-draw"
                         type="text"
                         placeholder="Enter your items"
                         value={input}
@@ -83,7 +84,7 @@ const EditList = ({
                     <button
                         className="append-button"
                         onClick={(e) => {
-                            appendItem(document.getElementById("input").value);
+                            appendItem(document.getElementById("input-random-draw").value);
                         }}
                     >
                         <svg

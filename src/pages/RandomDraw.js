@@ -72,7 +72,7 @@ class RandomDraw extends Component {
             localStorage.setItem("items", JSON.stringify(array));
             localStorage.setItem("ducks", JSON.stringify(duckArray));
         }
-        document.getElementById("input").focus();
+        document.getElementById("input-random-draw").focus();
     };
 
     removeItem = (index) => {
@@ -215,34 +215,36 @@ class RandomDraw extends Component {
     render() {
         return (
             <div className="random-draw">
-                <EditList
-                    editMode={this.state.editMode}
-                    items={this.state.items}
-                    ducks={this.state.ducks}
-                    selectedIndex={this.state.selectedIndex}
-                    input={this.state.input}
-                    readFile={this.readFile}
-                    readClipBoard={this.readClipBoard}
-                    onInputChange={this.onInputChange}
-                    drawItem={this.drawItem}
-                    appendItem={this.appendItem}
-                    removeItem={this.removeItem}
-                    changeDuck={this.changeDuck}
-                    removeAllItems={this.removeAllItems}
-                    dowloadList={this.downloadList}
-                />
-                <ItemResult
-                    editMode={this.state.editMode}
-                    decompressItem={this.state.decompressItem}
-                    items={this.state.items}
-                    selectedIndex={this.state.selectedIndex}
-                    itemIndex={this.state.itemIndex}
-                    drawItem={this.drawItem}
-                    drawItemWithout={this.drawItemWithout}
-                    activeEditMode={this.activeEditMode}
-                    isSharedResult={this.state.isSharedResult}
-                    location={this.props.location}
-                />
+                {this.state.editMode ? (
+                    <EditList
+                        items={this.state.items}
+                        ducks={this.state.ducks}
+                        selectedIndex={this.state.selectedIndex}
+                        input={this.state.input}
+                        readFile={this.readFile}
+                        readClipBoard={this.readClipBoard}
+                        onInputChange={this.onInputChange}
+                        drawItem={this.drawItem}
+                        appendItem={this.appendItem}
+                        removeItem={this.removeItem}
+                        changeDuck={this.changeDuck}
+                        removeAllItems={this.removeAllItems}
+                        dowloadList={this.downloadList}
+                    />
+                ) : (
+                    <ItemResult
+                        decompressItem={this.state.decompressItem}
+                        items={this.state.items}
+                        ducks={this.state.ducks}
+                        selectedIndex={this.state.selectedIndex}
+                        itemIndex={this.state.itemIndex}
+                        drawItem={this.drawItem}
+                        drawItemWithout={this.drawItemWithout}
+                        activeEditMode={this.activeEditMode}
+                        isSharedResult={this.state.isSharedResult}
+                        location={this.props.location}
+                    />
+                )}
             </div>
         );
     }

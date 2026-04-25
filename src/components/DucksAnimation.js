@@ -1,0 +1,107 @@
+import React, { useEffect, useRef } from "react";
+
+const DucksAnimation = ({ items, ducks, ducksLane, ducksLaneRef, itemIndex, decompressItem, phase }) => {
+    const canvasLeftRef = useRef(null);
+    const canvasRightRef = useRef(null);
+
+    const DUCK_RATIO = 48 / 40;
+    const DUCK_HEIGHT = (document.body.clientHeight * 5) / 100;
+    const DUCK_WIDTH = DUCK_HEIGHT * DUCK_RATIO;
+    const SPACING = 8;
+    const startPos =
+        3 * Math.round(document.body.clientWidth / (DUCK_WIDTH + SPACING)) * (DUCK_WIDTH + SPACING) +
+        DUCK_WIDTH / 2 -
+        document.body.clientWidth / 2;
+
+    const spin = () => {
+        const numberOfDuck = Math.round(document.body.clientWidth / (DUCK_WIDTH + SPACING));
+
+        ducksLaneRef.current.style.transform = `translateX(-${numberOfDuck * (DUCK_WIDTH + SPACING) + DUCK_WIDTH / 2 - document.body.clientWidth / 2}px)`;
+    };
+
+    const drawOnCanva = (canvas, ducksLaneSide) => {
+        canvas.width = ducksLaneSide.length * (DUCK_WIDTH + SPACING);
+        canvas.height = DUCK_HEIGHT + SPACING * 2;
+        const ctx = canvas.getContext("2d");
+
+        const ducksSources = [];
+        for (const duck in ducks) {
+            ducksSources.push(`./images/duck/${ducks[duck]}.svg`);
+        }
+
+        const ducksImg = [];
+        ducksSources.forEach((src) => {
+            const img = new Image();
+            img.src = src;
+            ducksImg.push(img);
+        });
+
+        Promise.all(ducksImg.map((img) => new Promise((res) => (img.onload = res)))).then(() => {
+            for (let i = 0; i < ducksLaneSide.length; i++) {
+                ctx.drawImage(
+                    ducksImg[ducksLaneSide[i]],
+                    i * (DUCK_WIDTH + SPACING),
+                    SPACING,
+                    DUCK_WIDTH,
+                    DUCK_HEIGHT,
+                );
+            }
+        });
+    };
+
+    useEffect(() => {
+        drawOnCanva(canvasLeftRef.current, ducksLane.left);
+        drawOnCanva(canvasRightRef.current, ducksLane.right);
+        spin();
+    }, []);
+
+    return (
+        <div className={`ducks-animation ${phase}`}>
+            <div className="result">
+                <img src="./images/random-draw/fishing-rod.svg" className="fishing-rod" alt="Fishing rod" />
+                <p className="selected-item secondary" style={{ opacity: `${phase === "idle" ? "1" : "0"}` }}>
+                    {items.length > 0 ? decompressItem : "No result"}
+                </p>
+            </div>
+            <div
+                className="ducks-lane"
+                ref={ducksLaneRef}
+                style={{
+                    transform: `translateX(-${startPos}px)`,
+                }}
+            >
+                <canvas
+                    className="ducks"
+                    ref={canvasLeftRef}
+                    style={{ transform: `${phase === "idle" ? "translateY(50vh)" : "translateY(0)"}` }}
+                ></canvas>
+                <div
+                    className={`slot-duck selected-duck ${ducks[itemIndex]}`}
+                    style={{
+                        width: `${DUCK_WIDTH + SPACING}px`,
+                    }}
+                >
+                    <img
+                        src={`./images/duck/${ducks[itemIndex]}.svg`}
+                        alt={ducks[itemIndex]}
+                        style={{
+                            width: `${DUCK_WIDTH}px`,
+                            height: `${DUCK_HEIGHT}px`,
+                        }}
+                    />
+                </div>
+                <canvas
+                    className="ducks"
+                    ref={canvasRightRef}
+                    style={{ transform: `${phase === "idle" ? "translateY(50vh)" : "translateY(0)"}` }}
+                ></canvas>
+            </div>
+            <div
+                className="da-water"
+                style={{ transform: `${phase === "idle" ? "translateY(50vh)" : "translateY(0)"}` }}
+            />
+        </div>
+    );
+};
+
+export default DucksAnimation;
