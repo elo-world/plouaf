@@ -1,3 +1,43 @@
 {
-    "language": "Italiano"
+    "language": "Italiano",
+    "pages": {
+        "RandomDraw": {
+            "title": "Estrazione",
+            "EditList": {
+                "presentation": "Aggiungi elementi e fai un'estrazione!",
+                "draw": "Estrarre",
+                "input_placeholder": "Inserisci un nome"
+            },
+            "Tools": {
+                "delete_all": "Elimina tutto",
+                "import": "Importa lista",
+                "paste": "Incolla lista",
+                "export": "Esporta lista"
+            },
+            "ItemResult": {
+                "edit_list": "Modifica lista",
+                "share": "Condividi",
+                "copied": "Copiato!",
+                "another_result": "Altro risultato",
+                "start_over_without": "Ricominciare senza"
+            }
+        },
+        "HeadsOrTails": {
+            "title": "Testa o Croce"
+        },
+        "Die": {
+            "title": "Lancio del dado"
+        },
+        "RandomNumberGenerator": {
+            "title": "Numero",
+            "presentation": "Scegli l'intervallo di generazione dei numeri e inizia l'estrazione!",
+            "step": "Scegliere il passo",
+            "back": "Torna alle opzioni",
+            "generate": "Genera numero",
+            "example": "Es:"
+        },
+        "About": {
+            "title": "Informazioni"
+        }
+    }
 }

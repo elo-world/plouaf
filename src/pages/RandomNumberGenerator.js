@@ -44,8 +44,8 @@ const RandomNumberGenerator = () => {
     const stepVal = parseFloat(step);
     const exampleHint =
         !isNaN(parseFloat(min)) && !isNaN(parseFloat(max)) && !isNaN(stepVal) && stepVal > 0
-            ? `Ex : ${parseFloat(min)}, ${parseFloat(min) + stepVal}, ..., ${parseFloat(max)}`
-            : "Ex : 1, 2, ..., 10";
+            ? `${translations[lang].pages.RandomNumberGenerator.example} ${parseFloat(min)}, ${parseFloat(min) + stepVal}, ..., ${parseFloat(max)}`
+            : `${translations[lang].pages.RandomNumberGenerator.example} 1, 2, ..., 10`;
 
     useEffect(() => {
         document.title = `plouaf! - ${translations[lang].pages.RandomNumberGenerator.title}`;
@@ -53,7 +53,7 @@ const RandomNumberGenerator = () => {
 
     return (
         <section className="random-number-generator">
-            <p>Choisir l'intervalle de génération de nombres et lancer le tirage !</p>
+            <p>{translations[lang].pages.RandomNumberGenerator.presentation}</p>
 
             <div className="options" style={{ display: `${isResult ? "none" : "block"}` }}>
                 <div className="range">
@@ -87,7 +87,7 @@ const RandomNumberGenerator = () => {
                 </div>
 
                 <div className="step">
-                    <label htmlFor="step">Choisir le pas</label>
+                    <label htmlFor="step">{translations[lang].pages.RandomNumberGenerator.step}</label>
                     <input
                         type="number"
                         className="input-number"
@@ -120,7 +120,7 @@ const RandomNumberGenerator = () => {
                             <path d="M6 8L2 12L6 16" />
                             <path d="M2 12H22" />
                         </svg>
-                        Back to option
+                        {translations[lang].pages.RandomNumberGenerator.back}
                     </button>
                 </div>
                 <span className="result-label">Nombre</span>
@@ -128,7 +128,7 @@ const RandomNumberGenerator = () => {
             </div>
 
             <button className="primary full-width" onClick={generateNumber} disabled={!isValid}>
-                <p>Générer Nombre</p>
+                <p>{translations[lang].pages.RandomNumberGenerator.generate}</p>
             </button>
         </section>
     );

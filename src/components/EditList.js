@@ -1,5 +1,10 @@
+import React, { useContext } from "react";
+
 import LZString from "lz-string";
 import Tools from "./Tools";
+
+import { LanguageContext } from "../context/LanguageContext";
+import translations from "../components/Translations";
 
 const EditList = ({
     items,
@@ -16,9 +21,11 @@ const EditList = ({
     changeDuck,
     removeAllItems,
 }) => {
+    const { lang } = useContext(LanguageContext);
+
     return (
         <div className="edit-list">
-            <p>Ajoutez des éléments puis tirer au sort !</p>
+            <p>{translations[lang].pages.RandomDraw.EditList.presentation}</p>
             <div className="items">
                 {items.map((item, index) => {
                     if (item !== "") {
@@ -63,7 +70,7 @@ const EditList = ({
                 disabled={items.length >= 2 ? false : true}
                 onClick={() => drawItem(selectedIndex)}
             >
-                <p>Tirer au sort</p>
+                <p>{translations[lang].pages.RandomDraw.EditList.draw}</p>
             </button>
             <Tools
                 items={items}
@@ -77,7 +84,7 @@ const EditList = ({
                     <input
                         id="input-random-draw"
                         type="text"
-                        placeholder="Enter your items"
+                        placeholder={translations[lang].pages.RandomDraw.EditList.input_placeholder}
                         value={input}
                         onChange={(e) => onInputChange(e)}
                     />

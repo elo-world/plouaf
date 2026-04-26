@@ -1,3 +1,43 @@
 {
-    "language": "Allemand"
+    "language": "Deutsch",
+    "pages": {
+        "RandomDraw": {
+            "title": "Zufallsziehung",
+            "EditList": {
+                "presentation": "Füge Elemente hinzu und starte die Ziehung!",
+                "draw": "Ziehen",
+                "input_placeholder": "Namen eingeben"
+            },
+            "Tools": {
+                "delete_all": "Alles löschen",
+                "import": "Liste importieren",
+                "paste": "Liste einfügen",
+                "export": "Liste exportieren"
+            },
+            "ItemResult": {
+                "edit_list": "Liste bearbeiten",
+                "share": "Teilen",
+                "copied": "Kopiert!",
+                "another_result": "Anderes Ergebnis",
+                "start_over_without": "Neu starten ohne"
+            }
+        },
+        "HeadsOrTails": {
+            "title": "Kopf oder Zahl"
+        },
+        "Die": {
+            "title": "Würfelwurf"
+        },
+        "RandomNumberGenerator": {
+            "title": "Zahl",
+            "presentation": "Wähle den Zahlenbereich und starte die Ziehung!",
+            "step": "Schrittweite wählen",
+            "back": "Zurück zu den Optionen",
+            "generate": "Zahl generieren",
+            "example": "Bsp:"
+        },
+        "About": {
+            "title": "Über"
+        }
+    }
 }

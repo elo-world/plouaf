@@ -2,17 +2,39 @@
     "language": "English",
     "pages": {
         "RandomDraw": {
-            "title": "Random Draw"
+            "title": "Random Draw",
+            "EditList": {
+                "presentation": "Add items then draw at random!",
+                "draw": "Draw",
+                "input_placeholder": "Enter a name"
+            },
+            "Tools": {
+                "delete_all": "Delete all",
+                "import": "Import list",
+                "paste": "Paste list",
+                "export": "Export list"
+            },
+            "ItemResult": {
+                "edit_list": "Edit list",
+                "share": "Share",
+                "copied": "Copied!",
+                "another_result": "Another result",
+                "start_over_without": "Start over without"
+            }
         },
         "HeadsOrTails": {
-            "title": "Heads or Tails",
-            "flip": "Flip the coin"
+            "title": "Heads or Tails"
         },
         "Die": {
-            "title": "Roll the die"
+            "title": "Dice Roll"
         },
         "RandomNumberGenerator": {
-            "title": "Number"
+            "title": "Number",
+            "presentation": "Choose the number generation range and start the draw!",
+            "step": "Choose the step",
+            "back": "Back to options",
+            "generate": "Generate number",
+            "example": "Ex:"
         },
         "About": {
             "title": "About"

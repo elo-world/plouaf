@@ -49,11 +49,32 @@ const DucksAnimation = ({ items, ducks, ducksLane, ducksLaneRef, itemIndex, deco
         });
     };
 
+    // In DucksAnimation, split the effect in two:
+
+    // 1. Reset position when ducksLane changes (before spin)
     useEffect(() => {
+        if (ducksLaneRef.current) {
+            ducksLaneRef.current.style.transition = "none"; // disable transition instantly
+            ducksLaneRef.current.style.transform = `translateX(-${startPos}px)`;
+        }
         drawOnCanva(canvasLeftRef.current, ducksLane.left);
         drawOnCanva(canvasRightRef.current, ducksLane.right);
-        spin();
-    }, []);
+    }, [ducksLane]);
+
+    // 2. Trigger spin when phase becomes "animation"
+    useEffect(() => {
+        if (phase === "animation") {
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    // double rAF ensures the reset paint is committed
+                    if (ducksLaneRef.current) {
+                        ducksLaneRef.current.style.transition = ""; // restore transition
+                    }
+                    spin();
+                });
+            });
+        }
+    }, [phase]);
 
     return (
         <div className={`ducks-animation ${phase}`}>

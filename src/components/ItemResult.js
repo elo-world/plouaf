@@ -1,8 +1,11 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useContext } from "react";
 import { useLocation } from "react-router-dom";
 import { buildShareURL } from "../utils/shareUtils";
 
 import DucksAnimation from "./DucksAnimation";
+
+import { LanguageContext } from "../context/LanguageContext";
+import translations from "../components/Translations";
 
 const ItemResult = ({
     decompressItem,
@@ -15,6 +18,8 @@ const ItemResult = ({
     activeEditMode,
     isSharedResult,
 }) => {
+    const { lang } = useContext(LanguageContext);
+
     const ducksLaneRef = useRef(null);
     const location = useLocation();
     const [phase, setPhase] = useState("animation"); // animation -> idle
@@ -69,6 +74,18 @@ const ItemResult = ({
         setCopied(false);
         setPhase("animation");
         setDucksLane({ left: generateDucksLane(1), right: generateDucksLane(3) });
+        if (ducksLaneRef.current) {
+            const DUCK_RATIO = 48 / 40;
+            const DUCK_HEIGHT = (document.body.clientHeight * 5) / 100;
+            const DUCK_WIDTH = DUCK_HEIGHT * DUCK_RATIO;
+            const SPACING = 8;
+            const startPos =
+                3 * Math.round(document.body.clientWidth / (DUCK_WIDTH + SPACING)) * (DUCK_WIDTH + SPACING) +
+                DUCK_WIDTH / 2 -
+                document.body.clientWidth / 2;
+
+            ducksLaneRef.current.style.transform = `translateX(-${startPos}px)`;
+        }
     };
 
     useEffect(() => {
@@ -104,7 +121,7 @@ const ItemResult = ({
                     <path d="M6 8L2 12L6 16" />
                     <path d="M2 12H22" />
                 </svg>
-                Edit liste
+                {translations[lang].pages.RandomDraw.ItemResult.edit_list}
             </button>
 
             <DucksAnimation
@@ -132,17 +149,21 @@ const ItemResult = ({
                             handleShare();
                         }}
                     >
-                        <p>{copied ? "✅ Copied!" : "🔗 Share"}</p>
+                        <p>
+                            {copied
+                                ? `✅ ${translations[lang].pages.RandomDraw.ItemResult.copied}`
+                                : `🔗 ${translations[lang].pages.RandomDraw.ItemResult.share}`}
+                        </p>
                     </button>
                 )}
                 <button
-                    className="other-result-button tertiary blue"
+                    className="tertiary blue"
                     onClick={() => {
                         reset();
                         drawItem(selectedIndex);
                     }}
                 >
-                    <p>Autre résultat</p>
+                    <p>{translations[lang].pages.RandomDraw.ItemResult.another_result}</p>
                 </button>
                 <button
                     className="draw-without-button tertiary yellow"
@@ -154,7 +175,7 @@ const ItemResult = ({
                         drawItemWithout(selectedIndex, itemIndex);
                     }}
                 >
-                    <p>{`Recommencer sans ${decompressItem}`}</p>
+                    <p>{`${translations[lang].pages.RandomDraw.ItemResult.start_over_without} ${decompressItem}`}</p>
                 </button>
             </div>
         </div>

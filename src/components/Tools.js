@@ -1,4 +1,11 @@
+import React, { useContext } from "react";
+
+import { LanguageContext } from "../context/LanguageContext";
+import translations from "../components/Translations";
+
 const Tools = ({ items, readFile, readClipBoard, dowloadList, removeAllItems }) => {
+    const { lang } = useContext(LanguageContext);
+
     return (
         <div className="tools">
             <div className="relative">
@@ -25,7 +32,7 @@ const Tools = ({ items, readFile, readClipBoard, dowloadList, removeAllItems }) 
                                 <path d="M3 6h18" />
                                 <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
                             </svg>
-                            Tout supprimer
+                            {translations[lang].pages.RandomDraw.Tools.delete_all}
                         </button>
                     </li>
                     <li>
@@ -46,7 +53,7 @@ const Tools = ({ items, readFile, readClipBoard, dowloadList, removeAllItems }) 
                                 <path d="m8 11 4 4 4-4" />
                                 <path d="M8 5H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-4" />
                             </svg>
-                            Importer une liste
+                            {translations[lang].pages.RandomDraw.Tools.import}
                         </label>
                         <input
                             type="file"
@@ -79,7 +86,7 @@ const Tools = ({ items, readFile, readClipBoard, dowloadList, removeAllItems }) 
                                 <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 1.793-1.113" />
                                 <rect x="8" y="2" width="8" height="4" rx="1" />
                             </svg>
-                            Paste List
+                            {translations[lang].pages.RandomDraw.Tools.paste}
                         </button>
                     </li>
                     <li>
@@ -104,7 +111,7 @@ const Tools = ({ items, readFile, readClipBoard, dowloadList, removeAllItems }) 
                                 <path d="M21 12H7" />
                                 <path d="m15 18 6-6-6-6" />
                             </svg>
-                            Export
+                            {translations[lang].pages.RandomDraw.Tools.export}
                         </button>
                     </li>
                 </ul>

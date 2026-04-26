@@ -1,3 +1,43 @@
 {
-    "language": "Espagnol"
+    "language": "Español",
+    "pages": {
+        "RandomDraw": {
+            "title": "Sorteo",
+            "EditList": {
+                "presentation": "¡Añade elementos y haz un sorteo!",
+                "draw": "Sortear",
+                "input_placeholder": "Introduce un nombre"
+            },
+            "Tools": {
+                "delete_all": "Eliminar todo",
+                "import": "Importar lista",
+                "paste": "Pegar lista",
+                "export": "Exportar lista"
+            },
+            "ItemResult": {
+                "edit_list": "Editar lista",
+                "share": "Compartir",
+                "copied": "¡Copiado!",
+                "another_result": "Otro resultado",
+                "start_over_without": "Empezar de nuevo sin"
+            }
+        },
+        "HeadsOrTails": {
+            "title": "Cara o Cruz"
+        },
+        "Die": {
+            "title": "Lanzamiento de dado"
+        },
+        "RandomNumberGenerator": {
+            "title": "Número",
+            "presentation": "¡Elige el intervalo de generación de números y comienza el sorteo!",
+            "step": "Elegir el paso",
+            "back": "Volver a las opciones",
+            "generate": "Generar número",
+            "example": "Ej:"
+        },
+        "About": {
+            "title": "Acerca de"
+        }
+    }
 }

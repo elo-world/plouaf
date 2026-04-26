@@ -1,3 +1,43 @@
 {
-    "language": "Ukrainien"
+    "language": "Українська",
+    "pages": {
+        "RandomDraw": {
+            "title": "Випадкове жеребкування",
+            "EditList": {
+                "presentation": "Додайте елементи та проведіть жеребкування!",
+                "draw": "Жеребкувати",
+                "input_placeholder": "Введіть ім'я"
+            },
+            "Tools": {
+                "delete_all": "Видалити все",
+                "import": "Імпортувати список",
+                "paste": "Вставити список",
+                "export": "Експортувати список"
+            },
+            "ItemResult": {
+                "edit_list": "Редагувати список",
+                "share": "Поділитися",
+                "copied": "Скопійовано!",
+                "another_result": "Інший результат",
+                "start_over_without": "Почати знову без"
+            }
+        },
+        "HeadsOrTails": {
+            "title": "Орел чи решка"
+        },
+        "Die": {
+            "title": "Кидок кубика"
+        },
+        "RandomNumberGenerator": {
+            "title": "Число",
+            "presentation": "Виберіть діапазон генерації чисел і почніть жеребкування!",
+            "step": "Вибрати крок",
+            "back": "Повернутися до параметрів",
+            "generate": "Згенерувати число",
+            "example": "Напр:"
+        },
+        "About": {
+            "title": "Про додаток"
+        }
+    }
 }
