@@ -1,3 +1,43 @@
 {
-    "language": "Corse"
+    "language": "Français",
+    "pages": {
+        "RandomDraw": {
+            "title": "Tirage au sort",
+            "EditList": {
+                "presentation": "Ajoutez des éléments puis tirer au sort !",
+                "draw": "Tirer au sort",
+                "input_placeholder": "Entrer un nom"
+            },
+            "Tools": {
+                "delete_all": "Tout supprimer",
+                "import": "Importer une liste",
+                "paste": "Coller liste",
+                "export": "Exporter liste"
+            },
+            "ItemResult": {
+                "edit_list": "Éditer la liste",
+                "share": "Partager",
+                "copied": "Copié !",
+                "another_result": "Autre résultat",
+                "start_over_without": "Recommencer sans"
+            }
+        },
+        "HeadsOrTails": {
+            "title": "Pile ou Face"
+        },
+        "Die": {
+            "title": "Lancer de dé"
+        },
+        "RandomNumberGenerator": {
+            "title": "Nombre",
+            "presentation": "Choisir l'intervalle de génération de nombres et lancer le tirage !",
+            "step": "Choisir le pas",
+            "back": "Retour aux options",
+            "generate": "Générer nombre",
+            "example": "Ex :"
+        },
+        "About": {
+            "title": "À propos"
+        }
+    }
 }
