@@ -33,8 +33,12 @@ const App = () => {
         >
             <Header show={showLanguagesMenu} status={statusMenu} toggleMenu={toggleLanguagesMenu} />
             <Outlet /> {/* Content of the page. */}
-            <ActionsBar path={pathname.substring(1)} toggleMenu={toggleMenu} />
-            <Menu isOpen={isMenuOpen} toggle={toggleMenu} heightVh={70} />
+            {pathname !== "about" ?? (
+                <>
+                    <ActionsBar path={pathname.substring(1)} toggleMenu={toggleMenu} />
+                    <Menu isOpen={isMenuOpen} toggle={toggleMenu} heightVh={70} />
+                </>
+            )}
         </div>
     );
 };

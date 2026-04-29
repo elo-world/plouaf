@@ -28,8 +28,8 @@ root.render(
                         <Route path="heads-or-tails" element={<HeadsOrTails />} />
                         <Route path="die" element={<Die />} />
                         <Route path="random-number-generator" element={<RandomNumberGenerator />} />
+                        <Route path="about" element={<About />} />
                     </Route>
-                    <Route path="/about" element={<About />} />
                     <Route path="*" element={<Navigate replace to="/" />} />
                 </Routes>
             </HashRouter>

@@ -8,7 +8,7 @@ function About() {
 
     return (
         <div className="about">
-            <h1>{translations[lang].About.title}</h1>
+            <h1>{translations[lang].pages.About.title}</h1>
         </div>
     );
 }

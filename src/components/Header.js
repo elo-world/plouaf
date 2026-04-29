@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 import { LanguageContext } from "../context/LanguageContext";
 import translations from "../components/Translations";
@@ -13,12 +14,14 @@ function Header({ show, status, toggleMenu }) {
 
     return (
         <header>
-            <img
-                className="logo"
-                fetchPriority={"high"}
-                src="./images/logo/typo.svg"
-                alt="Logo typographique"
-            />
+            <Link to="/">
+                <img
+                    className="logo"
+                    fetchPriority={"high"}
+                    src="./images/logo/typo.svg"
+                    alt="Logo typographique"
+                />
+            </Link>
             <div className="languages">
                 <button className="secondary" onClick={toggleMenu}>
                     <img src="./images/icons/world.svg" alt="Language icon" />
