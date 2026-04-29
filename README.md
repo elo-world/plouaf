@@ -8,7 +8,7 @@
 
 Here are the features available in the plouaf! app:
 
-- Draw lots
+- Draw lots (Import / Export / Paste list)
 - Heads or tails
 - Roll a die
 - Random number generator
@@ -29,6 +29,6 @@ There are currently 8 languages available on the app:
 
 # 🎯 To do
 
-- [ ] 🖥️ Create a fonctional app.
+- [x] 🖥️ Create a fonctional app.
 - [ ] 🦆 Add new duck (for event like a Christmas duck).
 - [ ] 🔢 Add a password generator.
