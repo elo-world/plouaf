@@ -1,0 +1,12 @@
+section {
+    padding-top: calc(var(--header-height) + 1rem);
+    padding-bottom: calc(var(--actions-bar-height) + 1rem);
+    padding-left: var(--content-padding-lr);
+    padding-right: var(--content-padding-lr);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}

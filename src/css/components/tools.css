@@ -1,11 +1,6 @@
 .tools {
     position: fixed;
-    left: 0;
-    bottom: calc(
-        var(--icon-size) + 4 * var(--item-border-size) + var(--window-border-tb) + 2 * var(--item-padding-lr)
-    );
-    display: flex;
-    padding: 0 0 0 var(--window-border-lr);
+    bottom: calc(var(--actions-bar-height) + var(--item-padding-tb));
     width: 100%;
 }
 
@@ -16,11 +11,11 @@
 
 .tools div ul {
     display: flex;
-    padding-right: var(--window-border-lr);
     width: 100%;
+    gap: var(--item-padding-lr);
+    padding: 0 var(--window-padding-lr);
     overflow-x: auto;
     overflow-y: hidden;
-    gap: var(--item-padding-lr);
     scroll-behavior: smooth;
 }
 
@@ -41,6 +36,6 @@
     top: 0;
     right: 0;
     height: 100%;
-    width: calc(2 * var(--window-border-lr));
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, var(--background-color) 100%);
+    width: calc(3 * var(--window-padding-lr));
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, var(--background-color) 100%);
 }

@@ -97,7 +97,7 @@ const ItemResult = ({
     }, [ducks, phase]);
 
     return (
-        <div className="item-result">
+        <section className="item-result">
             {isSharedResult && <p className="shared-result-banner">🎲 Shared result</p>}
             <button
                 className="edit-list-button"
@@ -135,9 +135,9 @@ const ItemResult = ({
             />
 
             <div
-                className="action-buttons"
+                className={`action-buttons ${phase}`}
                 style={{
-                    bottom: `${phase === "idle" ? "calc(var(--icon-size) + 4 * var(--item-border-size) + var(--window-border-tb) + 2 * var(--item-padding-lr))" : "-100%"}`,
+                    transform: `${phase === "idle" ? "translateY(0)" : "translateY(50vh)"}`,
                 }}
             >
                 {/* Share button — only shown when there is a real result */}
@@ -178,7 +178,7 @@ const ItemResult = ({
                     <p>{`${translations[lang].pages.RandomDraw.ItemResult.start_over_without} ${decompressItem}`}</p>
                 </button>
             </div>
-        </div>
+        </section>
     );
 };
 

@@ -3,7 +3,7 @@
     bottom: 0;
     right: 0;
     width: 100%;
-    padding: var(--window-border-tb) var(--window-border-lr);
+    padding: var(--window-padding-tb) var(--window-padding-lr);
 }
 
 .actions-bar.mode-random-draw {
@@ -11,5 +11,5 @@
 }
 
 .actions-bar.mode-random-draw button.secondary {
-    padding: 2px;
+    padding: var(--item-border-size);
 }

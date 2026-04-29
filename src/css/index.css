@@ -2,6 +2,7 @@
 @import url("./global.css");
 
 /* Components */
+@import url("./components/section.css");
 @import url("./components/header.css");
 @import url("./components/actions-bar.css");
 @import url("./components/menu.css");
@@ -11,6 +12,7 @@
 @import url("./components/ducks-animation.css");
 
 /* Pages */
+@import url("./pages/random-draw.css");
 @import url("./pages/heads-or-tails.css");
 @import url("./pages/die.css");
 @import url("./pages/random-number-generator.css");

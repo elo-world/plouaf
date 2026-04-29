@@ -6,13 +6,14 @@
 }
 
 :root {
-    /* Window */
-    --window-border-tb: 1.37vh;
-    --window-border-lr: 3vw;
+    /* ───── WINDOW ──────────────────────────────────────────────── */
+    --window-padding-tb: 12px;
+    --window-padding-lr: 12px;
 
-    --content-border-lr: 10vw;
+    /* ───── CONTENT ─────────────────────────────────────────────── */
+    --content-padding-lr: 10vw;
 
-    /* COLORS */
+    /* ───── COLORS ──────────────────────────────────────────────── */
     --primary-color: #0040ff;
     --dark-gray: #444a5a;
     --light-gray: #e5e5e7;
@@ -25,28 +26,44 @@
     --dark-red: #410000;
     --light-red: #ff8080;
     --background-color: #fff;
+    --box-shadow-color: rgba(68, 74, 90, 0.15);
 
-    /* Radius */
+    /* ───── RADIUS ──────────────────────────────────────────────── */
     --radius: 8px;
     --round-radius: 10000px;
 
-    /* Item */
+    /* ───── ITEM ────────────────────────────────────────────────── */
     --item-padding-tb: 8px;
     --item-padding-lr: 12px;
     --item-gap: 4px;
     --item-border-size: 2px;
 
-    /* Icon */
-    --icon-size: 48px;
-    /* Font */
-    --text-font-size: 16px;
+    /* ───── ICON ────────────────────────────────────────────────── */
+    --icon-size-L: 48px;
+    --icon-size-S: 24px;
+
+    /* ───── FONT ────────────────────────────────────────────────── */
+    --text-font-size: 1rem;
+    --title-font-size: 1.5rem;
+
+    /* ───── HEADER ──────────────────────────────────────────────── */
+    --header-height: 64px;
+
+    /* ───── ACTION BAR ──────────────────────────────────────────── */
+    --actions-bar-height: calc(
+        var(--icon-size-L) + 4 * var(--item-border-size) + 2 * var(--window-padding-tb)
+    );
+
+    /* ───── FOOTER ──────────────────────────────────────────────── */
+    --footer-height: calc(
+        var(--actions-bar-height) + var(--item-padding-tb) + var(--icon-size-S) + 2 * var(--item-padding-tb)
+    );
 }
 
-/* Global */
-
+/* ───── GLOBAL ──────────────────────────────────────────────── */
 .app {
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
 }
 
 ul {
@@ -60,6 +77,19 @@ p {
     font-weight: 500;
     font-size: var(--text-font-size);
     color: var(--dark-gray);
+}
+
+/* Chrome, Safari, Edge */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
 }
 
 a {
@@ -78,8 +108,8 @@ button {
     outline: none;
 }
 
-/* Button */
-
+/* ───── BUTTON ──────────────────────────────────────────────── */
+/* ───── PRIMARY ───────────────────────── */
 .primary {
     display: flex;
     flex-shrink: 0;
@@ -96,46 +126,21 @@ button {
     transition: background 500ms ease;
 }
 
-.primary:disabled {
-    background: var(--light-gray);
-}
-
 .primary p {
     color: var(--background-color);
-    font-size: 24px;
+    font-size: var(--title-font-size);
     transition: color 500ms ease;
+}
+
+.primary:disabled {
+    background: var(--light-gray);
 }
 
 .primary:disabled p {
     color: var(--dark-gray);
 }
 
-.primary-variant {
-    display: flex;
-    flex-shrink: 0;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 64px;
-    padding: var(--item-padding-tb) var(--item-padding-lr);
-    gap: var(--item-gap);
-    border-radius: var(--radius);
-    font-size: var(--text-font-size);
-    border: 1px solid var(--primary-color);
-    background: var(--background-color);
-    transition: background 500ms ease;
-}
-
-.primary-variant p {
-    color: var(--primary-color);
-    font-size: 24px;
-    transition: color 500ms ease;
-}
-
-.primary-variant:disabled p {
-    color: var(--dark-gray);
-}
-
+/* ───── SECONDARY ─────────────────────── */
 .secondary {
     display: flex;
     justify-content: center;
@@ -149,7 +154,7 @@ button {
 
 .fullwidth,
 .fullwidth p {
-    font-size: 24px;
+    font-size: var(--title-font-size);
 }
 
 .secondary.fullwidth {

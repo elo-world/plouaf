@@ -1,21 +1,9 @@
 .item-result {
-    position: fixed;
-    top: calc(
-        2 * var(--window-border-tb) + 2 * var(--item-padding-tb) + 2 * var(--item-border-size) + 24px + 2rem
-    );
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    padding: 0 var(--window-border-lr);
-    align-items: center;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 .item-result .action-buttons {
-    position: fixed;
-    left: 0;
-    bottom: calc(
-        var(--icon-size) + 4 * var(--item-border-size) + var(--window-border-tb) + 2 * var(--item-padding-lr)
-    );
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,7 +11,10 @@
     gap: 12px;
     padding: 0 var(--window-border-lr);
     width: 100%;
-    transition: bottom 800ms;
+}
+
+.item-result .action-buttons.idle {
+    transition: transform 800ms;
 }
 
 .item-result .action-buttons button {

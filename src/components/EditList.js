@@ -24,7 +24,7 @@ const EditList = ({
     const { lang } = useContext(LanguageContext);
 
     return (
-        <div className="edit-list">
+        <section className="edit-list">
             <p>{translations[lang].pages.RandomDraw.EditList.presentation}</p>
             <div className="items">
                 {items.map((item, index) => {
@@ -112,7 +112,7 @@ const EditList = ({
                     </button>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

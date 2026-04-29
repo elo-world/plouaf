@@ -1,16 +1,5 @@
 .random-number-generator {
-    position: fixed;
-    top: calc(
-        2 * var(--window-border-tb) + 2 * var(--item-padding-tb) + 2 * var(--item-border-size) + 24px + 2rem
-    );
-    left: 0;
-    width: 100%;
-    height: 60vh;
-    padding: 0 var(--content-border-lr);
-    display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
 }
 
 .random-number-generator .options .range {
