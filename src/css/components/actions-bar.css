@@ -12,4 +12,5 @@
 
 .actions-bar.mode-random-draw button.secondary {
     padding: var(--item-border-size);
+    background: var(--background-color);
 }
