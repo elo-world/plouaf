@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 
 const DucksAnimation = ({ items, ducks, ducksLane, ducksLaneRef, itemIndex, decompressItem, phase }) => {
     const canvasLeftRef = useRef(null);
@@ -13,41 +13,44 @@ const DucksAnimation = ({ items, ducks, ducksLane, ducksLaneRef, itemIndex, deco
         DUCK_WIDTH / 2 -
         document.body.clientWidth / 2;
 
-    const spin = () => {
+    const spin = useCallback(() => {
         const numberOfDuck = Math.round(document.body.clientWidth / (DUCK_WIDTH + SPACING));
 
         ducksLaneRef.current.style.transform = `translateX(-${numberOfDuck * (DUCK_WIDTH + SPACING) + DUCK_WIDTH / 2 - document.body.clientWidth / 2}px)`;
-    };
+    }, [DUCK_WIDTH, ducksLaneRef]);
 
-    const drawOnCanva = (canvas, ducksLaneSide) => {
-        canvas.width = ducksLaneSide.length * (DUCK_WIDTH + SPACING);
-        canvas.height = DUCK_HEIGHT + SPACING * 2;
-        const ctx = canvas.getContext("2d");
+    const drawOnCanva = useCallback(
+        (canvas, ducksLaneSide) => {
+            canvas.width = ducksLaneSide.length * (DUCK_WIDTH + SPACING);
+            canvas.height = DUCK_HEIGHT + SPACING * 2;
+            const ctx = canvas.getContext("2d");
 
-        const ducksSources = [];
-        for (const duck in ducks) {
-            ducksSources.push(`./images/duck/${ducks[duck]}.svg`);
-        }
-
-        const ducksImg = [];
-        ducksSources.forEach((src) => {
-            const img = new Image();
-            img.src = src;
-            ducksImg.push(img);
-        });
-
-        Promise.all(ducksImg.map((img) => new Promise((res) => (img.onload = res)))).then(() => {
-            for (let i = 0; i < ducksLaneSide.length; i++) {
-                ctx.drawImage(
-                    ducksImg[ducksLaneSide[i]],
-                    i * (DUCK_WIDTH + SPACING),
-                    SPACING,
-                    DUCK_WIDTH,
-                    DUCK_HEIGHT,
-                );
+            const ducksSources = [];
+            for (const duck in ducks) {
+                ducksSources.push(`./images/duck/${ducks[duck]}.svg`);
             }
-        });
-    };
+
+            const ducksImg = [];
+            ducksSources.forEach((src) => {
+                const img = new Image();
+                img.src = src;
+                ducksImg.push(img);
+            });
+
+            Promise.all(ducksImg.map((img) => new Promise((res) => (img.onload = res)))).then(() => {
+                for (let i = 0; i < ducksLaneSide.length; i++) {
+                    ctx.drawImage(
+                        ducksImg[ducksLaneSide[i]],
+                        i * (DUCK_WIDTH + SPACING),
+                        SPACING,
+                        DUCK_WIDTH,
+                        DUCK_HEIGHT,
+                    );
+                }
+            });
+        },
+        [DUCK_WIDTH, DUCK_HEIGHT, ducks],
+    );
 
     // In DucksAnimation, split the effect in two:
 
@@ -59,7 +62,7 @@ const DucksAnimation = ({ items, ducks, ducksLane, ducksLaneRef, itemIndex, deco
         }
         drawOnCanva(canvasLeftRef.current, ducksLane.left);
         drawOnCanva(canvasRightRef.current, ducksLane.right);
-    }, [ducksLane]);
+    }, [ducksLane, drawOnCanva, ducksLaneRef, startPos]);
 
     // 2. Trigger spin when phase becomes "animation"
     useEffect(() => {
@@ -74,7 +77,7 @@ const DucksAnimation = ({ items, ducks, ducksLane, ducksLaneRef, itemIndex, deco
                 });
             });
         }
-    }, [phase]);
+    }, [phase, ducksLaneRef, spin]);
 
     return (
         <div className={`ducks-animation ${phase}`}>

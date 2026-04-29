@@ -27,11 +27,25 @@
     text-overflow: ellipsis;
 }
 
-.item-result .edit-list-button {
+.item-result .top {
+    width: 100%;
+}
+
+.item-result .top .edit-list-button {
     display: flex;
     align-items: center;
     gap: var(--item-gap);
     color: var(--primary-color);
     border: none;
     outline: none;
+}
+
+.item-result .top .shared-result-banner {
+    width: 100%;
+    text-align: center;
+    padding: calc(var(--item-padding-tb) * 2) 0;
+    background: var(--light-green);
+    color: var(--dark-green);
+    margin-bottom: var(--item-padding-tb);
+    border-radius: var(--radius);
 }
