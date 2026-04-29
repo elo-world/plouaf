@@ -27,7 +27,7 @@
 
 .ducks-animation .ducks-lane {
     position: fixed;
-    top: 55vh;
+    bottom: calc(40vh - 8px);
     left: 0;
     width: 100%;
     display: flex;
@@ -59,7 +59,7 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 39vh;
+    height: 40vh;
     background: #c7edf9;
     z-index: -1;
 }

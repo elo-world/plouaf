@@ -128,7 +128,7 @@ class RandomDraw extends Component {
             reader.onload = () => {
                 const array = reader.result.split("\n");
                 let compressArray = this.state.items;
-                let duckArray = [];
+                let duckArray = this.state.ducks;
                 for (var i = 0; i < array.length; i++) {
                     if (array[i].replaceAll(" ", "") !== "") {
                         compressArray.push(LZString.compress(array[i]));

@@ -63,6 +63,7 @@ const Tools = ({ items, readFile, readClipBoard, dowloadList, removeAllItems }) 
                             style={{ display: "none" }}
                             onChange={(e) => {
                                 readFile(e);
+                                e.target.value = "";
                             }}
                         />
                     </li>
