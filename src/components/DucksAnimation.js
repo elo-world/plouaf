@@ -1,17 +1,20 @@
-import React, { useCallback, useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useMemo, useRef } from "react";
+
+const DUCK_RATIO = 48 / 40;
+const SPACING = 8;
 
 const DucksAnimation = ({ items, ducks, ducksLane, ducksLaneRef, itemIndex, decompressItem, phase }) => {
     const canvasLeftRef = useRef(null);
     const canvasRightRef = useRef(null);
 
-    const DUCK_RATIO = 48 / 40;
-    const DUCK_HEIGHT = (document.body.clientHeight * 5) / 100;
-    const DUCK_WIDTH = DUCK_HEIGHT * DUCK_RATIO;
-    const SPACING = 8;
-    const startPos =
-        3 * Math.round(document.body.clientWidth / (DUCK_WIDTH + SPACING)) * (DUCK_WIDTH + SPACING) +
-        DUCK_WIDTH / 2 -
-        document.body.clientWidth / 2;
+    const { DUCK_HEIGHT, DUCK_WIDTH, startPos } = useMemo(() => {
+        const DUCK_HEIGHT = (document.body.clientHeight * 5) / 100;
+        const DUCK_WIDTH = DUCK_HEIGHT * DUCK_RATIO;
+        const numberOfDuck = Math.round(document.body.clientWidth / (DUCK_WIDTH + SPACING));
+        const startPos =
+            3 * numberOfDuck * (DUCK_WIDTH + SPACING) + DUCK_WIDTH / 2 - document.body.clientWidth / 2;
+        return { DUCK_HEIGHT, DUCK_WIDTH, startPos };
+    }, []);
 
     const spin = useCallback(() => {
         const numberOfDuck = Math.round(document.body.clientWidth / (DUCK_WIDTH + SPACING));
