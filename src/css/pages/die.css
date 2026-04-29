@@ -5,7 +5,9 @@
 .roll-the-die .die {
     position: relative;
     height: 25vh;
+    height: 25dvh;
     width: 25vh;
+    width: 25dvh;
     transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
     transition: transform 3s cubic-bezier(0.33, 1, 0.68, 1);
@@ -21,19 +23,25 @@
 
 .roll-the-die .die .face-1 {
     transform: rotateY(0deg) translateZ(12.5vh);
+    transform: rotateY(0deg) translateZ(12.5dvh);
 }
 .roll-the-die .die .face-2 {
     transform: rotateY(180deg) translateZ(12.5vh);
+    transform: rotateY(180deg) translateZ(12.5dvh);
 }
 .roll-the-die .die .face-3 {
     transform: rotateY(90deg) translateZ(12.5vh);
+    transform: rotateY(90deg) translateZ(12.5dvh);
 }
 .roll-the-die .die .face-4 {
     transform: rotateY(-90deg) translateZ(12.5vh);
+    transform: rotateY(-90deg) translateZ(12.5dvh);
 }
 .roll-the-die .die .face-5 {
     transform: rotateX(90deg) translateZ(12.5vh);
+    transform: rotateX(90deg) translateZ(12.5dvh);
 }
 .roll-the-die .die .face-6 {
     transform: rotateX(-90deg) translateZ(12.5vh);
+    transform: rotateX(-90deg) translateZ(12.5dvh);
 }

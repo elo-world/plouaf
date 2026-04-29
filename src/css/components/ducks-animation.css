@@ -3,8 +3,10 @@
     top: 0;
     left: 50%;
     height: 60vh;
+    height: 60dvh;
     transform-origin: top;
     transform: translate(-50%, -25vh);
+    transform: translate(-50%, -25dvh);
     animation: fishing 5s ease-out;
     z-index: -100;
 }
@@ -16,6 +18,7 @@
 .ducks-animation .result .selected-item {
     position: fixed;
     top: 45vh;
+    top: 45dvh;
     left: 50%;
     font-size: 1.5rem;
 }
@@ -28,6 +31,7 @@
 .ducks-animation .ducks-lane {
     position: fixed;
     bottom: calc(40vh - 8px);
+    bottom: calc(40dvh - 8px);
     left: 0;
     width: 100%;
     display: flex;
@@ -60,6 +64,7 @@
     left: 0;
     width: 100%;
     height: 40vh;
+    height: 40dvh;
     background: #c7edf9;
     z-index: -1;
 }
@@ -71,15 +76,19 @@
 @keyframes duck-swings {
     0% {
         transform: scale(1.4) translateY(-15vh) rotate(0);
+        transform: scale(1.4) translateY(-15dvh) rotate(0);
     }
     25% {
         transform: scale(1.4) translateY(-15vh) rotate(4deg);
+        transform: scale(1.4) translateY(-15dvh) rotate(4deg);
     }
     75% {
         transform: scale(1.4) translateY(-15vh) rotate(-4deg);
+        transform: scale(1.4) translateY(-15dvh) rotate(-4deg);
     }
     100% {
         transform: scale(1.4) translateY(-15vh) rotate(0);
+        transform: scale(1.4) translateY(-15dvh) rotate(0);
     }
 }
 
@@ -101,15 +110,19 @@
 @keyframes absolute-fishing-swings {
     0% {
         transform: translate(-50%, -25vh) rotate(0);
+        transform: translate(-50%, -25dvh) rotate(0);
     }
     25% {
         transform: translate(-50%, -25vh) rotate(2deg);
+        transform: translate(-50%, -25dvh) rotate(2deg);
     }
     75% {
         transform: translate(-50%, -25vh) rotate(-2deg);
+        transform: translate(-50%, -25dvh) rotate(-2deg);
     }
     100% {
         transform: translate(-50%, -25vh) rotate(0);
+        transform: translate(-50%, -25dvh) rotate(0);
     }
 }
 
@@ -123,6 +136,7 @@
     90% {
         transform: translate(-50%, 0) scaleY(1.2);
         height: 60vh;
+        height: 60dvh;
     }
 }
 
@@ -132,5 +146,6 @@
     }
     100% {
         transform: scale(1.4) translateY(-15vh);
+        transform: scale(1.4) translateY(-15dvh);
     }
 }
