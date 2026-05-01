@@ -21,6 +21,10 @@
     top: 45dvh;
     left: 50%;
     font-size: 1.5rem;
+    text-wrap: nowrap;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .ducks-animation.idle .result .selected-item {

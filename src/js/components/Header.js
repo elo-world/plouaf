@@ -52,7 +52,7 @@ function Header({ show, status, toggleMenu, toggleLanguagesMenu }) {
                         stroke="currentColor"
                         strokeWidth="2"
                         strokeLinecap="round"
-                        stroke-Linejoin="round"
+                        strokeLinejoin="round"
                         className="lucide lucide-menu-icon lucide-menu"
                     >
                         <path d="M4 5h16" />

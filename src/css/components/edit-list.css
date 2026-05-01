@@ -41,6 +41,11 @@
     overflow-x: auto;
 }
 
+.edit-list .items .item .text p {
+    text-wrap: nowrap;
+    white-space: nowrap;
+}
+
 .edit-list .items .item button {
     display: flex;
     align-items: center;
