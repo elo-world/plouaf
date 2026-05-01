@@ -90,10 +90,13 @@ self.addEventListener("fetch", (event) => {
 function fetchAndCache(request) {
     return fetch(request)
         .then((response) => {
-            // Only cache valid, same-origin ("basic") 200 responses.
             if (!response || response.status !== 200 || response.type !== "basic") {
                 return response;
             }
+
+            // ✅ Guard: skip caching for non-http(s) URLs (e.g. chrome-extension://)
+            const url = new URL(request.url);
+            if (!/^https?:$/i.test(url.protocol)) return response;
 
             const responseToCache = response.clone();
             caches
@@ -123,6 +126,9 @@ function fetchAndCache(request) {
  * Used for the stale-while-revalidate pattern (FIX 4).
  */
 function revalidateInBackground(request) {
+    const url = new URL(request.url);
+    if (!/^https?:$/i.test(url.protocol)) return;
+
     fetch(request)
         .then((response) => {
             if (!response || response.status !== 200 || response.type !== "basic") return;
