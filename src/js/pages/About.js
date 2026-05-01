@@ -34,14 +34,16 @@ function About() {
             </p>
             <h2>Ce que fait plouaf! 🎲</h2>
             <p>
-                Tirage au sort - Importe ta liste de noms, colle-la directement ou tape-la à la main. plouaf!
-                désigne un gagnant en un clic. Tu peux sauvegarder tes listes et partager tes résultats.
+                <b>Tirage au sort</b> - Importe ta liste de noms, colle-la directement ou tape-la à la main.
+                plouaf! désigne un gagnant en un clic. Tu peux sauvegarder tes listes et partager tes
+                résultats.
                 <br />
-                Pile ou face - Un doute ? Une décision impossible ? Laisse le hasard trancher.
+                <b>Pile ou face</b> - Un doute ? Une décision impossible ? Laisse le hasard trancher.
                 <br />
-                Lancer de dé - Un dé classique, toujours disponible, même quand t'en as pas sous la main.
+                <b>Lancer de dé</b> - Un dé classique, toujours disponible, même quand t'en as pas sous la
+                main.
                 <br />
-                Générateur de nombres aléatoires - Choisis une fourchette, plouaf! s'occupe du reste.
+                <b>Générateur de nombres aléatoires</b> - Choisis une fourchette, plouaf! s'occupe du reste.
             </p>
             <h2>8 langues, et le breton en premier 🌍</h2>
             <p>
