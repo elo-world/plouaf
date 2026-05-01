@@ -3,6 +3,8 @@
 ![Header](./public/images/screenshots/desktop.png)
 
 [plouaf!](https://elo-world.github.io/plouaf) is a simple web app that lets users make random selections in multiple languages. You can, for example, pick a name at random, flip a coin, roll a die, or generate a random number.
+plouaf! was born from a simple idea: to have a random selection tool available in Breton. Because Breton deserves its own web apps, too. Inspired by the famous “plouf plouf” from the schoolyard—that little rhyme we used to chant to pick someone at random—the name plouaf was born, with a little Breton twist to set it apart.
+Since then, the app has grown and now offers much more than just a simple random selection.
 
 # 🛠️ Features
 
