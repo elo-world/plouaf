@@ -14,9 +14,6 @@ header {
 /* ───── LOGO ────────────────────────────────────────────────── */
 header .logo {
     height: var(--icon-size-S);
-    background: rgba(255, 255, 255, 0.7);
-    -webkit-backdrop-filter: blur(1px);
-    backdrop-filter: blur(1px);
 }
 
 /* ───── LANGUAGES ───────────────────────────────────────────── */

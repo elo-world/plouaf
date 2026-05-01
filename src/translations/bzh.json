@@ -2,42 +2,42 @@
     "language": "Brezhoneg",
     "pages": {
         "RandomDraw": {
-            "title": "Tennañ d'ar sord",
+            "title": "Tennañ d'ar sort",
             "EditList": {
-                "presentation": "Ouzhpennañ meur a elfenn, ha goude tennañ d'ar sord !",
-                "draw": "Tennañ d'ar sord",
-                "input_placeholder": "Lakaat un anv"
+                "presentation": "Ouzhpennit elfennoù ha tennit d'ar sort!",
+                "draw": "Tennañ d'ar sort",
+                "input_placeholder": "Enankit ur anv"
             },
             "Tools": {
-                "delete_all": "skarzhit an holl",
-                "import": "Emporzhiañ ul listenn",
-                "paste": "Pegañ ul listenn",
-                "export": "Ezporzhiañ ul listenn"
+                "delete_all": "Dilemel an holl",
+                "import": "Emporzhiañ ur roll",
+                "paste": "Pegañ roll",
+                "export": "Ezporzhiañ roll"
             },
             "ItemResult": {
-                "edit_list": "Embann al listenn",
+                "edit_list": "Kemmañ ar roll",
                 "share": "Rannañ",
-                "copied": "Eilet !",
+                "copied": "Eilet!",
                 "another_result": "Disoc'h all",
                 "start_over_without": "Adkrogiñ hep"
             }
         },
         "HeadsOrTails": {
-            "title": "Pil pe Groaz"
+            "title": "Penn pe Lost"
         },
         "Die": {
-            "title": "Stlepel un diñs"
+            "title": "Teuler an darlask"
         },
         "RandomNumberGenerator": {
             "title": "Niver",
-            "presentation": "Dibab ur spas niverel ha goude tennañ d'ar sord !",
-            "step": "Dibab ar paz",
-            "back": "Distreiñ d'an dibaboù",
-            "generate": "Dec'han un niverenn",
-            "example": "Sk :"
+            "presentation": "Dibabit an etennad evit geniñ niveroù ha tennit d'ar sort!",
+            "step": "Dibab ar pas",
+            "back": "Distro d'an dibarzhioù",
+            "generate": "Geniñ niver",
+            "example": "Da sk. :"
         },
         "About": {
-            "title": "À propos"
+            "title": "Diwar-benn"
         }
     }
 }

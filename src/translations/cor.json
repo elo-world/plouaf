@@ -1,43 +1,43 @@
 {
-    "language": "Français",
+    "language": "Corsu",
     "pages": {
         "RandomDraw": {
-            "title": "Tirage au sort",
+            "title": "Sortegghju",
             "EditList": {
-                "presentation": "Ajoutez des éléments puis tirer au sort !",
-                "draw": "Tirer au sort",
-                "input_placeholder": "Entrer un nom"
+                "presentation": "Aghjunghjite elementi è fate u sortegghju!",
+                "draw": "Fà u sortegghju",
+                "input_placeholder": "Entre un nomu"
             },
             "Tools": {
-                "delete_all": "Tout supprimer",
-                "import": "Importer une liste",
-                "paste": "Coller liste",
-                "export": "Exporter liste"
+                "delete_all": "Sguassà tuttu",
+                "import": "Impurtà una lista",
+                "paste": "Incollà lista",
+                "export": "Esportà lista"
             },
             "ItemResult": {
-                "edit_list": "Éditer la liste",
-                "share": "Partager",
-                "copied": "Copié !",
-                "another_result": "Autre résultat",
-                "start_over_without": "Recommencer sans"
+                "edit_list": "Mudificà a lista",
+                "share": "Spartì",
+                "copied": "Copiatu!",
+                "another_result": "Altru risultatu",
+                "start_over_without": "Ricumincià senza"
             }
         },
         "HeadsOrTails": {
-            "title": "Pile ou Face"
+            "title": "Testa o Cigliu"
         },
         "Die": {
-            "title": "Lancer de dé"
+            "title": "Lanzà u dadu"
         },
         "RandomNumberGenerator": {
-            "title": "Nombre",
-            "presentation": "Choisir l'intervalle de génération de nombres et lancer le tirage !",
-            "step": "Choisir le pas",
-            "back": "Retour aux options",
-            "generate": "Générer nombre",
-            "example": "Ex :"
+            "title": "Numeru",
+            "presentation": "Sceglite l'intervallu di generazione di numeri è lanciate u sortegghju!",
+            "step": "Sceglì u passu",
+            "back": "Torna à l'opzioni",
+            "generate": "Generà numeru",
+            "example": "Ex:"
         },
         "About": {
-            "title": "À propos"
+            "title": "À prupositu"
         }
     }
 }
