@@ -13,7 +13,7 @@ class RandomDraw extends Component {
             itemIndex: 0,
             items: [],
             ducks: [],
-            duckChoices: ["yellow", "red", "green", "blue", "pink"],
+            duckChoices: ["yellow", "red", "green", "blue", "pink", "orange"],
             selectedIndex: [],
             decompressItem: "",
             isSharedResult: false,
