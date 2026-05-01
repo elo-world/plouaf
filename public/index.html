@@ -4,13 +4,77 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#0040FF" />
+
+        <!-- SEO: Description & Robots -->
         <meta
             name="description"
-            content="plouaf! is a simple web app that lets users make random selections in multiple languages. You can, for example, pick a name at random, flip a coin, roll a die, or generate a random number."
+            content="plouaf! – Tirage au sort, pile ou face, dé et nombre aléatoire. Application gratuite en 8 langues : français, anglais, breton, italien, espagnol, allemand, ukrainien."
         />
+        <meta name="robots" content="index, follow" />
+
+        <!-- SEO: Canonical -->
+        <link rel="canonical" href="https://elo-world.github.io/plouaf/" />
+
+        <!-- SEO: Hreflang (multilingual) -->
+        <link rel="alternate" hreflang="fr" href="https://elo-world.github.io/plouaf/" />
+        <link rel="alternate" hreflang="en" href="https://elo-world.github.io/plouaf/" />
+        <link rel="alternate" hreflang="x-default" href="https://elo-world.github.io/plouaf/" />
 
         <!-- Google Search Engine -->
         <meta name="google-site-verification" content="I_BzDC5-ujVle_yJfLTHPJLGWBNBxuFNUPV8eZOHJrk" />
+
+        <!-- Open Graph (Facebook / LinkedIn / social sharing) -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://elo-world.github.io/plouaf/" />
+        <meta property="og:title" content="plouaf! – Tirage au sort, pile ou face, dé, nombre aléatoire" />
+        <meta
+            property="og:description"
+            content="Application web gratuite pour faire des sélections aléatoires : tirage au sort, pile ou face, lancer de dé, générateur de nombres. Disponible en 8 langues."
+        />
+        <meta
+            property="og:image"
+            content="https://elo-world.github.io/plouaf/images/screenshots/desktop.png"
+        />
+        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:locale:alternate" content="en_US" />
+        <meta property="og:site_name" content="plouaf!" />
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="plouaf! - Tirage au sort, pile ou face, dé, nombre aléatoire" />
+        <meta
+            name="twitter:description"
+            content="Application web gratuite pour faire des sélections aléatoires en 8 langues."
+        />
+        <meta
+            name="twitter:image"
+            content="https://elo-world.github.io/plouaf/images/screenshots/desktop.png"
+        />
+
+        <!-- JSON-LD Structured Data -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebApplication",
+                "name": "plouaf!",
+                "url": "https://elo-world.github.io/plouaf/",
+                "description": "Application web gratuite pour faire des sélections aléatoires : tirage au sort, pile ou face, lancer de dé, générateur de nombres aléatoires.",
+                "applicationCategory": "UtilityApplication",
+                "operatingSystem": "All",
+                "inLanguage": ["fr", "en", "br", "it", "es", "de", "uk"],
+                "featureList": [
+                    "Tirage au sort (importer / exporter / coller une liste)",
+                    "Pile ou face",
+                    "Lancer de dé",
+                    "Générateur de nombres aléatoires"
+                ],
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "EUR"
+                }
+            }
+        </script>
 
         <!-- Icon -->
         <link rel="icon" href="%PUBLIC_URL%/images/icons/website/favicon.ico" />
@@ -20,7 +84,7 @@
         <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
         <!-- Title -->
-        <title>plouaf!</title>
+        <title>plouaf! - Tirage au sort, pile ou face, dé, nombre aléatoire</title>
 
         <!-- Service Worker -->
         <script>
