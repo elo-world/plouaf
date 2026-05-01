@@ -61,6 +61,8 @@
     .menu {
         height: 100vh;
         height: 100dvh;
+        box-shadow: none;
+        border-radius: 0;
     }
 
     .menu-content {
