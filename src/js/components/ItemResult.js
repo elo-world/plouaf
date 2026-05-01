@@ -5,7 +5,7 @@ import { buildShareURL } from "../utils/shareUtils";
 import DucksAnimation from "./DucksAnimation";
 
 import { LanguageContext } from "../context/LanguageContext";
-import translations from "../components/Translations";
+import translations from "./Translations";
 
 const ItemResult = ({
     decompressItem,

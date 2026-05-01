@@ -16,7 +16,6 @@ class RandomDraw extends Component {
             duckChoices: ["yellow", "red", "green", "blue", "pink"],
             selectedIndex: [],
             decompressItem: "",
-            // Share: true when the page was opened from a shared link
             isSharedResult: false,
         };
     }
@@ -154,7 +153,7 @@ class RandomDraw extends Component {
             decompressItems.push(LZString.decompress(item));
         }
         const text = decompressItems.join("\n");
-        const blob = new Blob([text], { type: "text/plain" });
+        const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
         const link = document.createElement("a");
         link.href = URL.createObjectURL(blob);
         link.download = "plouaf.txt";
@@ -162,6 +161,10 @@ class RandomDraw extends Component {
         link.click();
         document.body.removeChild(link);
         URL.revokeObjectURL(link.href);
+    };
+
+    saveList = (listName) => {
+        localStorage.setItem(listName, JSON.stringify(this.state.items));
     };
 
     componentDidMount() {

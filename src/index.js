@@ -4,14 +4,14 @@ import { HashRouter, Route, Routes, Navigate } from "react-router-dom";
 
 // Pages
 import App from "./App";
-import RandomDrawWrapper from "./pages/RandomDrawWrapper";
-import HeadsOrTails from "./pages/HeadsOrTails";
-import Die from "./pages/Die";
-import RandomNumberGenerator from "./pages/RandomNumberGenerator";
-import About from "./pages/About";
+import RandomDrawWrapper from "./js/pages/RandomDrawWrapper";
+import HeadsOrTails from "./js/pages/HeadsOrTails";
+import Die from "./js/pages/Die";
+import RandomNumberGenerator from "./js/pages/RandomNumberGenerator";
+import About from "./js/pages/About";
 
 // Language Provider
-import { LanguageProvider } from "./context/LanguageContext";
+import { LanguageProvider } from "./js/context/LanguageContext";
 
 // Import CSS
 import "./css/index.css";

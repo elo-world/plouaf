@@ -2,9 +2,9 @@ import { useState, useCallback } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 
 // Components
-import Header from "./components/Header";
-import ActionsBar from "./components/ActionsBar";
-import Menu from "./components/Menu";
+import Header from "./js/components/Header";
+import ActionsBar from "./js/components/ActionsBar";
+import Menu from "./js/components/Menu";
 
 const App = () => {
     const [showLanguagesMenu, setShowLanguagesMenu] = useState(false);
