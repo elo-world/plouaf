@@ -8,7 +8,7 @@ export function LanguageProvider({ children }) {
     useEffect(() => {
         const storedLanguage = localStorage.getItem("language");
         storedLanguage ? setLang(storedLanguage) : localStorage.setItem("language", lang);
-    }, []);
+    }, [lang]);
 
     return <LanguageContext.Provider value={{ lang, setLang }}>{children}</LanguageContext.Provider>;
 }

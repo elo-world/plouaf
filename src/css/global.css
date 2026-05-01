@@ -76,6 +76,11 @@ ul {
     list-style: none;
 }
 
+h1,
+h2 {
+    color: var(--dark-gray);
+}
+
 button,
 li,
 input,
