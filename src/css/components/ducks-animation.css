@@ -150,7 +150,7 @@
     }
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 900px) and (min-height: 650px) {
     .ducks-animation .result .fishing-rod {
         height: 70vh;
         height: 70dvh;
@@ -159,7 +159,7 @@
     }
 
     .ducks-animation .result .selected-item {
-        font-size: var(--title-font-size);
+        font-size: calc(1.5 * var(--title-font-size));
     }
 
     @keyframes absolute-fishing-swings {

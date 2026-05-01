@@ -38,12 +38,8 @@ const App = () => {
                 toggleLanguagesMenu={toggleLanguagesMenu}
             />
             <Outlet /> {/* Content of the page. */}
-            {pathname !== "/about" && (
-                <>
-                    <ActionsBar path={pathname.substring(1)} toggleMenu={toggleMenu} />
-                    <Menu isOpen={isMenuOpen} toggle={toggleMenu} />
-                </>
-            )}
+            {pathname !== "/about" && <ActionsBar path={pathname.substring(1)} toggleMenu={toggleMenu} />}
+            <Menu isOpen={isMenuOpen} toggle={toggleMenu} />
         </div>
     );
 };

@@ -11,9 +11,13 @@ section {
     height: 100%;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 900px) and (min-height: 650px) {
     section {
         padding-top: calc(var(--header-height) + 2rem);
         padding-bottom: calc(var(--actions-bar-height) + 2rem);
+    }
+
+    section.item-result {
+        padding-bottom: calc(2*var(--window-padding-tb));
     }
 }

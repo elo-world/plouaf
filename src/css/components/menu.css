@@ -57,7 +57,7 @@
     color: var(--primary-color);
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 900px) and (min-height: 650px) {
     .menu {
         height: 100vh;
         height: 100dvh;

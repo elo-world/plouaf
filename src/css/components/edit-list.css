@@ -92,11 +92,7 @@
     color: #fff;
 }
 
-@media screen and (min-width: 900px) {
-    .edit-list {
-        padding-bottom: calc(var(--footer-height) + 2rem);
-    }
-
+@media screen and (min-width: 900px) and (min-height: 650px) {
     .edit-list .input-box {
         position: fixed;
         bottom: 0;
