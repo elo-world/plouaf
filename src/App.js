@@ -31,7 +31,12 @@ const App = () => {
                 if (showLanguagesMenu) toggleLanguagesMenu();
             }}
         >
-            <Header show={showLanguagesMenu} status={statusMenu} toggleMenu={toggleLanguagesMenu} />
+            <Header
+                show={showLanguagesMenu}
+                status={statusMenu}
+                toggleMenu={toggleMenu}
+                toggleLanguagesMenu={toggleLanguagesMenu}
+            />
             <Outlet /> {/* Content of the page. */}
             {pathname !== "/about" && (
                 <>

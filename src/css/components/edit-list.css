@@ -77,6 +77,9 @@
 }
 
 .edit-list .input-bar button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-shrink: 0;
     width: var(--icon-size-L);
     height: var(--icon-size-L);
@@ -87,4 +90,24 @@
 
 .edit-list .input-bar button svg {
     color: #fff;
+}
+
+@media screen and (min-width: 900px) {
+    .edit-list {
+        padding-bottom: calc(var(--footer-height) + 2rem);
+    }
+
+    .edit-list .input-box {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .edit-list .input-box .input-bar {
+        width: 50vw;
+    }
 }

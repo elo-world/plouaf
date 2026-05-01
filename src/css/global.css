@@ -43,8 +43,8 @@
     --icon-size-S: 24px;
 
     /* ───── FONT ────────────────────────────────────────────────── */
-    --text-font-size: 1rem;
-    --title-font-size: 1.5rem;
+    --text-font-size: 16px;
+    --title-font-size: 24px;
 
     /* ───── HEADER ──────────────────────────────────────────────── */
     --header-height: 64px;
@@ -120,6 +120,33 @@ button {
 }
 
 /* ───── BUTTON ──────────────────────────────────────────────── */
+.btn-box-toggle-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(var(--icon-size-L) + 4 * var(--item-border-size));
+    height: calc(var(--icon-size-L) + 4 * var(--item-border-size));
+}
+
+.btn-toggle-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--icon-size-L);
+    height: var(--icon-size-L);
+    border-radius: var(--round-radius);
+    background: var(--primary-color);
+    border: none;
+    outline: none;
+    transition: transform 250ms;
+}
+
+.btn-toggle-menu svg {
+    width: var(--icon-size-S);
+    height: var(--icon-size-S);
+    color: var(--background-color);
+}
+
 /* ───── PRIMARY ───────────────────────── */
 .primary {
     display: flex;
@@ -138,6 +165,7 @@ button {
 }
 
 .primary p {
+    flex-shrink: 0;
     color: var(--background-color);
     font-size: var(--title-font-size);
     transition: color 500ms ease;
@@ -204,7 +232,7 @@ button {
     color: var(--dark-red);
 }
 
-/* Input */
+/* ───── INPUT ─────────────────────────── */
 .input-number {
     text-align: center;
     background: var(--light-gray);
@@ -213,4 +241,56 @@ button {
     border-radius: var(--radius);
     border: none;
     outline: none;
+}
+
+/* ───── RESPONSIVE ────────────────────── */
+@media screen and (min-width: 900px) {
+    :root {
+        /* ───── WINDOW ──────────────────────────────────────────────── */
+        --window-padding-tb: 5vh;
+        --window-padding-lr: 20vw;
+
+        /* ───── CONTENT ─────────────────────────────────────────────── */
+        --content-padding-lr: 25vw;
+
+        /* ───── RADIUS ──────────────────────────────────────────────── */
+        --radius: 12px;
+        --round-radius: 10000px;
+
+        /* ───── ITEM ────────────────────────────────────────────────── */
+        --item-padding-tb: 12px;
+        --item-padding-lr: 16px;
+        --item-gap: 8px;
+        --item-border-size: 2px;
+
+        /* ───── ICON ────────────────────────────────────────────────── */
+        --icon-size-L: 48px;
+        --icon-size-S: 28px;
+
+        /* ───── FONT ────────────────────────────────────────────────── */
+        --text-font-size: 20px;
+        --title-font-size: 28px;
+
+        /* ───── HEADER ──────────────────────────────────────────────── */
+        --header-height: 75px;
+    }
+
+    .btn-toggle-menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: var(--icon-size-L);
+        height: var(--icon-size-L);
+        border-radius: var(--round-radius);
+        background: var(--primary-color);
+        border: none;
+        outline: none;
+        transition: transform 250ms;
+    }
+
+    .primary {
+        width: fit-content;
+        padding-left: calc(var(--item-padding-lr) * 3);
+        padding-right: calc(var(--item-padding-lr) * 3);
+    }
 }

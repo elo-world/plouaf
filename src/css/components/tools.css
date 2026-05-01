@@ -39,3 +39,17 @@
     width: calc(3 * var(--window-padding-lr));
     background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, var(--background-color) 100%);
 }
+
+@media screen and (min-width: 900px) {
+    .tools {
+        bottom: calc(var(--actions-bar-height));
+    }
+
+    .tools div ul {
+        justify-content: center;
+    }
+
+    .tools div .gradient {
+        width: calc(3 * var(--item-padding-lr));
+    }
+}

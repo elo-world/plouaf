@@ -149,3 +149,49 @@
         transform: scale(1.4) translateY(-15dvh);
     }
 }
+
+@media screen and (min-width: 900px) {
+    .ducks-animation .result .fishing-rod {
+        height: 70vh;
+        height: 70dvh;
+        transform: translate(-50%, -35vh);
+        transform: translate(-50%, -35dvh);
+    }
+
+    .ducks-animation .result .selected-item {
+        font-size: var(--title-font-size);
+    }
+
+    @keyframes absolute-fishing-swings {
+        0% {
+            transform: translate(-50%, -35vh) rotate(0);
+            transform: translate(-50%, -35dvh) rotate(0);
+        }
+        25% {
+            transform: translate(-50%, -35vh) rotate(2deg);
+            transform: translate(-50%, -35dvh) rotate(2deg);
+        }
+        75% {
+            transform: translate(-50%, -35vh) rotate(-2deg);
+            transform: translate(-50%, -35dvh) rotate(-2deg);
+        }
+        100% {
+            transform: translate(-50%, -35vh) rotate(0);
+            transform: translate(-50%, -35dvh) rotate(0);
+        }
+    }
+
+    @keyframes fishing {
+        0% {
+            transform: translate(-50%, -100%);
+        }
+        20% {
+            transform: translate(-50%, -10vh);
+        }
+        90% {
+            transform: translate(-50%, -10vh) scaleY(1.2);
+            height: 70vh;
+            height: 70dvh;
+        }
+    }
+}

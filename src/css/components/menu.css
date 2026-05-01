@@ -29,6 +29,8 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
     overflow-y: auto;
 }
 
@@ -38,6 +40,8 @@
     margin: 2rem 0;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 12px;
 }
 
@@ -51,4 +55,24 @@
 .menu-content a {
     font-weight: 500;
     color: var(--primary-color);
+}
+
+@media screen and (min-width: 900px) {
+    .menu {
+        height: 100vh;
+        height: 100dvh;
+    }
+
+    .menu-content {
+        padding: var(--window-padding-tb) 0;
+        height: 100%;
+    }
+
+    .menu-content ul {
+        gap: 24px;
+    }
+
+    .menu-content ul li {
+        width: 70%;
+    }
 }

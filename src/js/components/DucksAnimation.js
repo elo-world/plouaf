@@ -2,17 +2,22 @@ import React, { useCallback, useEffect, useMemo, useRef } from "react";
 
 const DUCK_RATIO = 48 / 40;
 const SPACING = 8;
+const windowLaneNumber = { true: 3, false: 2 };
+const windowDuckSize = { true: 5, false: 7 };
 
 const DucksAnimation = ({ items, ducks, ducksLane, ducksLaneRef, itemIndex, decompressItem, phase }) => {
     const canvasLeftRef = useRef(null);
     const canvasRightRef = useRef(null);
 
     const { DUCK_HEIGHT, DUCK_WIDTH, startPos } = useMemo(() => {
-        const DUCK_HEIGHT = (document.body.clientHeight * 5) / 100;
+        const DUCK_HEIGHT =
+            (document.body.clientHeight * windowDuckSize[document.body.clientWidth < 900]) / 100;
         const DUCK_WIDTH = DUCK_HEIGHT * DUCK_RATIO;
         const numberOfDuck = Math.round(document.body.clientWidth / (DUCK_WIDTH + SPACING));
         const startPos =
-            3 * numberOfDuck * (DUCK_WIDTH + SPACING) + DUCK_WIDTH / 2 - document.body.clientWidth / 2;
+            windowLaneNumber[document.body.clientWidth < 900] * numberOfDuck * (DUCK_WIDTH + SPACING) +
+            DUCK_WIDTH / 2 -
+            document.body.clientWidth / 2;
         return { DUCK_HEIGHT, DUCK_WIDTH, startPos };
     }, []);
 

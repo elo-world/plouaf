@@ -11,21 +11,28 @@ header {
     z-index: 100;
 }
 
+header .box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--item-padding-lr);
+}
+
 /* ───── LOGO ────────────────────────────────────────────────── */
 header .logo {
     height: var(--icon-size-S);
 }
 
 /* ───── LANGUAGES ───────────────────────────────────────────── */
-header .languages {
+header .box .languages {
     position: relative;
 }
 
-header .languages button {
+header .box .languages button {
     background: var(--background-color);
 }
 
-header .languages ul.languages-menu {
+header .box .languages ul.languages-menu {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -38,19 +45,19 @@ header .languages ul.languages-menu {
     opacity: 0;
 }
 
-header .languages ul.languages-menu.load {
+header .box .languages ul.languages-menu.load {
     display: none;
 }
 
-header .languages ul.languages-menu.show {
+header .box .languages ul.languages-menu.show {
     animation: showMenu 250ms forwards;
 }
 
-header .languages ul.languages-menu.hide {
+header .box .languages ul.languages-menu.hide {
     animation: hideMenu 250ms forwards;
 }
 
-header .languages ul.languages-menu li {
+header .box .languages ul.languages-menu li {
     padding: var(--item-padding-tb) var(--item-padding-lr);
     cursor: pointer;
 }

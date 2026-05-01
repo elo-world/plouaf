@@ -10,12 +10,8 @@ const Tools = ({ items, readFile, readClipBoard, dowloadList, removeAllItems }) 
         <div className="tools">
             <div className="relative">
                 <ul>
-                    <li>
-                        <button
-                            className="tertiary red"
-                            style={{ display: `${items.length > 0 ? "flex" : "none"}` }}
-                            onClick={removeAllItems}
-                        >
+                    <li style={{ display: `${items.length > 0 ? "flex" : "none"}` }}>
+                        <button className="tertiary red" onClick={removeAllItems}>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="24"
@@ -90,12 +86,8 @@ const Tools = ({ items, readFile, readClipBoard, dowloadList, removeAllItems }) 
                             {translations[lang].pages.RandomDraw.Tools.paste}
                         </button>
                     </li>
-                    <li>
-                        <button
-                            className="tertiary blue"
-                            style={{ display: `${items.length < 2 ? "none" : "flex"}` }}
-                            onClick={dowloadList}
-                        >
+                    <li style={{ display: `${items.length < 2 ? "none" : "flex"}` }}>
+                        <button className="tertiary blue" onClick={dowloadList}>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="24"

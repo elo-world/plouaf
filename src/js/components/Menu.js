@@ -15,12 +15,14 @@ const Menu = ({ isOpen, toggle }) => {
     const navigate = useNavigate();
 
     const onDragStart = (e) => {
-        startY.current = (e.touches ? e.touches[0] : e).clientY;
-        sheetRef.current.style.transition = "none";
-        window.addEventListener("mousemove", onDrag);
-        window.addEventListener("touchmove", onDrag, { passive: false });
-        window.addEventListener("mouseup", onDragEnd);
-        window.addEventListener("touchend", onDragEnd);
+        if (document.body.clientWidth < 900) {
+            startY.current = (e.touches ? e.touches[0] : e).clientY;
+            sheetRef.current.style.transition = "none";
+            window.addEventListener("mousemove", onDrag);
+            window.addEventListener("touchmove", onDrag, { passive: false });
+            window.addEventListener("mouseup", onDragEnd);
+            window.addEventListener("touchend", onDragEnd);
+        }
     };
 
     const onDrag = (e) => {
@@ -86,8 +88,32 @@ const Menu = ({ isOpen, toggle }) => {
             onMouseDown={onDragStart}
             onTouchStart={onDragStart}
         >
-            <div className="menu-handle" />
+            <div
+                className="menu-handle"
+                style={{ display: `${document.body.clientWidth < 900 ? "block" : "none"}` }}
+            />
             <div className="menu-content">
+                <button
+                    className="btn-toggle-menu"
+                    onClick={toggle}
+                    style={{ display: `${document.body.clientWidth > 900 ? "flex" : "none"}` }}
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-x-icon lucide-x"
+                    >
+                        <path d="M18 6 6 18" />
+                        <path d="m6 6 12 12" />
+                    </svg>
+                </button>
                 <ul>
                     <li>
                         <button className="secondary fullwidth" onClick={() => navigateTo("/random-draw")}>

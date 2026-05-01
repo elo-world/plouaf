@@ -7,6 +7,9 @@ import DucksAnimation from "./DucksAnimation";
 import { LanguageContext } from "../context/LanguageContext";
 import translations from "./Translations";
 
+const windowLaneNumber = { true: 3, false: 2 };
+const windowDuckSize = { true: 5, false: 7 };
+
 const ItemResult = ({
     decompressItem,
     items,
@@ -53,7 +56,8 @@ const ItemResult = ({
 
     const generateDucksLane = (laneSize) => {
         const DUCK_RATIO = 48 / 40;
-        const DUCK_HEIGHT = (document.body.clientHeight * 5) / 100;
+        const DUCK_HEIGHT =
+            (document.body.clientHeight * windowDuckSize[document.body.clientWidth < 900]) / 100;
         const DUCK_WIDTH = DUCK_HEIGHT * DUCK_RATIO;
         const SPACING = 8;
 
@@ -68,12 +72,18 @@ const ItemResult = ({
         return laneSide;
     };
 
-    const [ducksLane, setDucksLane] = useState({ left: generateDucksLane(1), right: generateDucksLane(3) });
+    const [ducksLane, setDucksLane] = useState({
+        left: generateDucksLane(1),
+        right: generateDucksLane(windowLaneNumber[document.body.clientWidth < 900]),
+    });
 
     const reset = () => {
         setCopied(false);
         setPhase("animation");
-        setDucksLane({ left: generateDucksLane(1), right: generateDucksLane(3) });
+        setDucksLane({
+            left: generateDucksLane(1),
+            right: generateDucksLane(windowLaneNumber[document.body.clientWidth < 900]),
+        });
         if (ducksLaneRef.current) {
             const DUCK_RATIO = 48 / 40;
             const DUCK_HEIGHT = (document.body.clientHeight * 5) / 100;
@@ -139,7 +149,7 @@ const ItemResult = ({
             <div
                 className={`action-buttons ${phase}`}
                 style={{
-                    transform: `${phase === "idle" ? "translateY(0)" : "translateY(50vh)"}`,
+                    transform: `${phase === "idle" ? "translateY(0)" : "translateY(100vh)"}`,
                 }}
             >
                 {/* Share button — only shown when there is a real result */}
