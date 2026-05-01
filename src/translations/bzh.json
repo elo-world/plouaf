@@ -1,40 +1,40 @@
 {
-    "language": "Français",
+    "language": "Brezhoneg",
     "pages": {
         "RandomDraw": {
-            "title": "Tirage au sort",
+            "title": "Tennañ d'ar sord",
             "EditList": {
-                "presentation": "Ajoutez des éléments puis tirer au sort !",
-                "draw": "Tirer au sort",
-                "input_placeholder": "Entrer un nom"
+                "presentation": "Ouzhpennañ meur a elfenn, ha goude tennañ d'ar sord !",
+                "draw": "Tennañ d'ar sord",
+                "input_placeholder": "Lakaat un anv"
             },
             "Tools": {
-                "delete_all": "Tout supprimer",
-                "import": "Importer une liste",
-                "paste": "Coller liste",
-                "export": "Exporter liste"
+                "delete_all": "skarzhit an holl",
+                "import": "Emporzhiañ ul listenn",
+                "paste": "Pegañ ul listenn",
+                "export": "Ezporzhiañ ul listenn"
             },
             "ItemResult": {
-                "edit_list": "Éditer la liste",
-                "share": "Partager",
-                "copied": "Copié !",
-                "another_result": "Autre résultat",
-                "start_over_without": "Recommencer sans"
+                "edit_list": "Embann al listenn",
+                "share": "Rannañ",
+                "copied": "Eilet !",
+                "another_result": "Disoc'h all",
+                "start_over_without": "Adkrogiñ hep"
             }
         },
         "HeadsOrTails": {
-            "title": "Pile ou Face"
+            "title": "Pil pe Groaz"
         },
         "Die": {
-            "title": "Lancer de dé"
+            "title": "Stlepel un diñs"
         },
         "RandomNumberGenerator": {
-            "title": "Nombre",
-            "presentation": "Choisir l'intervalle de génération de nombres et lancer le tirage !",
-            "step": "Choisir le pas",
-            "back": "Retour aux options",
-            "generate": "Générer nombre",
-            "example": "Ex :"
+            "title": "Niver",
+            "presentation": "Dibab ur spas niverel ha goude tennañ d'ar sord !",
+            "step": "Dibab ar paz",
+            "back": "Distreiñ d'an dibaboù",
+            "generate": "Dec'han un niverenn",
+            "example": "Sk :"
         },
         "About": {
             "title": "À propos"

@@ -1,12 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-import { LanguageContext } from "../context/LanguageContext";
-import translations from "../components/Translations";
-
 function About() {
-    const { lang } = useContext(LanguageContext);
-
     return (
         <section className="about">
             <Link to="/">
