@@ -41,7 +41,6 @@ class RandomDraw extends Component {
         }
 
         const randomIndex = selectedIndexList[Math.floor(Math.random() * selectedIndexList.length)];
-        console.log(randomIndex);
 
         this.setState({
             editMode: false,
@@ -58,8 +57,6 @@ class RandomDraw extends Component {
     drawItemWithout = (items, deselectedItemIndex) => {
         const newItems = items.filter((item) => item !== deselectedItemIndex);
         this.setState({ selectedIndex: newItems });
-        console.log(deselectedItemIndex, newItems, items);
-
         this.drawItem(newItems);
     };
 

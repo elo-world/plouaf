@@ -61,8 +61,8 @@ const ItemResult = ({
 
         let laneSide = [];
         for (let i = 0; i < numberOfDuck; i++) {
-            const ducksIdx = Math.floor(Math.random() * ducks.length);
-            laneSide.push(ducksIdx);
+            const ducksIdx = Math.floor(Math.random() * selectedIndex.length);
+            laneSide.push(selectedIndex[ducksIdx]);
         }
 
         return laneSide;
