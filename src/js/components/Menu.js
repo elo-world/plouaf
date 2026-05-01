@@ -120,7 +120,9 @@ const Menu = ({ isOpen, toggle }) => {
                         </button>
                     </li>
                 </ul>
-                <Link to="/about">À propos de plouaf!</Link>
+                <Link to="/about" onClick={toggle}>
+                    À propos de plouaf!
+                </Link>
             </div>
         </div>
     );

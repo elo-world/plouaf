@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 
 // Components
@@ -33,7 +33,7 @@ const App = () => {
         >
             <Header show={showLanguagesMenu} status={statusMenu} toggleMenu={toggleLanguagesMenu} />
             <Outlet /> {/* Content of the page. */}
-            {pathname !== "about" && (
+            {pathname !== "/about" && (
                 <>
                     <ActionsBar path={pathname.substring(1)} toggleMenu={toggleMenu} />
                     <Menu isOpen={isMenuOpen} toggle={toggleMenu} />

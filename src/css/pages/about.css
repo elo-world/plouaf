@@ -1,0 +1,22 @@
+.about {
+    height: fit-content;
+    align-items: flex-start;
+}
+
+.about button {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: var(--item-gap);
+    color: var(--primary-color);
+    border: none;
+    outline: none;
+}
+
+.about h2 {
+    margin-bottom: 1rem;
+}
+
+.about p {
+    margin-bottom: 2rem;
+}

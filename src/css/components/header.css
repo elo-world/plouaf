@@ -8,6 +8,9 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: var(--window-padding-tb) var(--window-padding-lr);
+    background: rgba(255, 255, 255, 0.7);
+    -webkit-backdrop-filter: blur(1px);
+    backdrop-filter: blur(1px);
     z-index: 100;
 }
 
@@ -19,6 +22,10 @@ header .logo {
 /* ───── LANGUAGES ───────────────────────────────────────────── */
 header .languages {
     position: relative;
+}
+
+header .languages button {
+    background: var(--background-color);
 }
 
 header .languages ul.languages-menu {
