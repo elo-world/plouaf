@@ -147,7 +147,7 @@ const Menu = ({ isOpen, toggle }) => {
                     </li>
                 </ul>
                 <Link to="/about" onClick={toggle}>
-                    À propos de plouaf!
+                    <p>À propos de plouaf!</p>
                 </Link>
             </div>
         </div>
