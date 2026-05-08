@@ -29,10 +29,11 @@
     border-radius: var(--radius);
     font-size: var(--text-font-size);
     border: var(--item-border-size) solid var(--light-gray);
+    z-index: 10;
 }
 
 .edit-list .items .item img {
-    height: 24px;
+    height: var(--icon-size-S);
     cursor: pointer;
 }
 

@@ -14,3 +14,9 @@
     padding: var(--item-border-size);
     background: var(--background-color);
 }
+
+@media screen and (min-width: 900px) and (min-height: 650px) {
+    .actions-bar.mode-random-draw {
+        padding: 0;
+    }
+}

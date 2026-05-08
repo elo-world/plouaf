@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-globals */
 /* eslint-env serviceworker */
 
-const CACHE_VERSION = "v1.2.0";
+const CACHE_VERSION = "v1.2.1";
 
 const urlsToCache = [
     "./",

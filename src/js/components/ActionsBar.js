@@ -16,7 +16,9 @@ function ActionsBar({ path, toggleMenu }) {
         ].title;
 
     return (
-        <div className={`actions-bar ${mode === "random-draw" ? "mode-random-draw" : ""}`}>
+        <div
+            className={`actions-bar ${mode === "random-draw" ? "mode-random-draw" : ""}`}
+        >
             {mode === "random-draw" ? (
                 <div className="btn-box-toggle-menu">
                     <button
@@ -45,11 +47,8 @@ function ActionsBar({ path, toggleMenu }) {
                     </button>
                 </div>
             ) : (
-                <button
-                    className={`secondary ${mode === "random-draw" ? "" : "fullwidth"}`}
-                    onClick={toggleMenu}
-                >
-                    <p style={{ display: `${mode === "random-draw" ? "none" : "block"}` }}>{modeTitle}</p>
+                <button className={`secondary fullwidth`} onClick={toggleMenu}>
+                    <p style={{ display: `block` }}>{modeTitle}</p>
                     <img src={`./images/menu/${mode}.svg`} alt={`${modeTitle} Icon`} />
                 </button>
             )}
