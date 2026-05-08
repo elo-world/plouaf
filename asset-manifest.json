@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/plouaf/static/css/main.0874edb1.css",
-    "main.js": "/plouaf/static/js/main.22f85f79.js",
+    "main.css": "/plouaf/static/css/main.c647d587.css",
+    "main.js": "/plouaf/static/js/main.6d30ee80.js",
     "static/media/Inter.ttf": "/plouaf/static/media/Inter.e05c5f3d1fa6a3893d84.ttf",
     "index.html": "/plouaf/index.html",
-    "main.0874edb1.css.map": "/plouaf/static/css/main.0874edb1.css.map",
-    "main.22f85f79.js.map": "/plouaf/static/js/main.22f85f79.js.map"
+    "main.c647d587.css.map": "/plouaf/static/css/main.c647d587.css.map",
+    "main.6d30ee80.js.map": "/plouaf/static/js/main.6d30ee80.js.map"
   },
   "entrypoints": [
-    "static/css/main.0874edb1.css",
-    "static/js/main.22f85f79.js"
+    "static/css/main.c647d587.css",
+    "static/js/main.6d30ee80.js"
   ]
 }
